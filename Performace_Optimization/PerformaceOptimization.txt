@@ -1,0 +1,3 @@
+Dynamic Imports (for Performance)
+
+we need to create a header components, for nav-bar then we need to use this <Header><nav><Link></Link></nav></Header>

@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "es5", // Or "es6" if your target environment supports modern JavaScript
+    "jsx": "preserve", // Use react-jsx for React 17+ (the new JSX Transform)
+    "module": "esnext", // Next.js supports esnext modules
+    "moduleResolution": "node", // Node-style module resolution
+    "allowJs": true, // Allow JS files in the project
+    "checkJs": true, // Optionally check JS files for errors
+    "strict": true, // Enable strict type checking
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ] // Custom alias for your src directory
+    },
+    "esModuleInterop": true, // Compatibility with CommonJS modules
+    "skipLibCheck": true, // Skip type checking of library declaration files
+    "forceConsistentCasingInFileNames": true // Ensure consistent casing of filenames
+    ,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "noEmit": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts", // Include Next.js types
+    "src/**/*" // Include all files in the src directory
+    ,
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules" // Exclude node_modules from compilation
+  ]
+}
