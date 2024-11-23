@@ -1,23 +1,59 @@
-import React from 'react'
-import Image from 'next/image'
-import Logo from '@/app/assets/logo/logo.png'
-import Link from 'next/link'
+'use client'
 
-export default function Navbar() {
+import React, { useState } from 'react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
+import styles from './NavBar.module.scss';
+import Link from 'next/link';
+import Image from 'next/image';
+import asyncdevlogo from "../../assets/logo/asyncdevlogo.png";
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="logo">
-          <Image src={Logo} alt="Logo" width={150} height={50} />
+    <nav className={styles.navbar}>
+      <div className={styles.navbarContainer}>
+        <div className={styles.navbarHeader}>
+          <div className={styles.logoGroup}>
+            <Link href="/" className={styles.navbarLogo}>
+              <Image
+                src={asyncdevlogo}
+                alt="AsyncDev Logo"
+                width={50}
+                height={50}
+                priority
+              />
+            </Link>
+            <span className={styles.title}>AsyncDev</span>
+          </div>
+          
+          <button 
+            className={styles.mobileToggle}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-label="Toggle navigation"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-        <Link href="/Services">Services</Link>
-        <Link href="/About">About</Link>
-        <Link href="/Contact">Contact</Link>
-        <Link href="/Resources">Resources</Link>
-        <Link href="/contact">
-          <button className="schedule-button">Schedule Strategy Call</button>
-        </Link>
+
+        <div className={`${styles.navbarContent} ${isOpen ? styles.isOpen : ''}`}>
+          <div className={styles.navbarLinks}>
+            <Link href="/Services" className={styles.navLink}>Services</Link>
+            <Link href="/About" className={styles.navLink}>About</Link>
+            <Link href="/Resources" className={styles.navLink}>Resources</Link>
+            <Link href="/Contact" className={styles.navLink}>Contact</Link>
+          </div>
+
+          <Link href="/Contact" className={styles.scheduleButton}>
+            Schedule Strategy Call
+            <ArrowUpRight className={styles.arrowIcon} />
+          </Link>
+        </div>
       </div>
     </nav>
-  )
-}
+  );
+};
+
+export default Navbar;
+
