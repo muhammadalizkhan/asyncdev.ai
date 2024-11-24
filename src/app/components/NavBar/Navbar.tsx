@@ -10,6 +10,10 @@ import asyncdevlogo from "../../assets/logo/asyncdevlogo.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleLinkClick = () => {
+    setIsOpen(false); // Close the menu when a link is clicked
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
@@ -39,10 +43,10 @@ const Navbar = () => {
 
         <div className={`${styles.navbarContent} ${isOpen ? styles.isOpen : ''}`}>
           <div className={styles.navbarLinks}>
-            <Link href="/Services" className={styles.navLink}>Services</Link>
-            <Link href="/About" className={styles.navLink}>About</Link>
-            <Link href="/Resources" className={styles.navLink}>Resources</Link>
-            <Link href="/Contact" className={styles.navLink}>Contact</Link>
+            <Link href="/Services" className={styles.navLink} onClick={handleLinkClick}>Services</Link>
+            <Link href="/About" className={styles.navLink} onClick={handleLinkClick}>About</Link>
+            <Link href="/Resources" className={styles.navLink} onClick={handleLinkClick}>Resources</Link>
+            <Link href="/Contact" className={styles.navLink} onClick={handleLinkClick}>Contact</Link>
           </div>
 
           <Link href="/Contact" className={styles.scheduleButton}>
@@ -56,4 +60,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

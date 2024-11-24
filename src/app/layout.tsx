@@ -3,6 +3,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ReactNode } from "react";
 import Navbar from "./components/NavBar/Navbar";
+import Footer from "./Footer/Page";
+import Hero from "./Hero/Page";
+import Contact from "./Contact/page";
+import Header from "./components/Header/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,9 +29,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <header>
-          <Navbar />
+          <Header />
         </header>
         <main>{children}</main>
+        <footer>
+          <Footer />
+        </footer>
       </body>
     </html>
   );
