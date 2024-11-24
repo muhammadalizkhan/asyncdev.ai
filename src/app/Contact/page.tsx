@@ -1,6 +1,8 @@
 
 export default function Contact() {
   return (
-    <div>Contact</div>
+    <div style={{
+      color: 'black',
+    }}>Contact</div>
   )
 }

@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Resources() {
   return (
-    <div>Resources</div>
+    <div style={{
+      color: 'black',
+    }}>Resources</div>
   )
 }

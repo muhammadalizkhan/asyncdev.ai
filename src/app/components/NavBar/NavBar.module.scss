@@ -1,3 +1,4 @@
+/* Navbar styling */
 .navbar {
   position: fixed;
   top: 10px;
@@ -117,6 +118,7 @@
   margin-left: 8px;
 }
 
+/* Mobile-specific styles */
 @media (max-width: 768px) {
   .navbar {
     position: static;
@@ -150,7 +152,7 @@
     align-items: flex-start;
     width: 100%;
     padding: 0 20px;
-    
+
     &.isOpen {
       height: auto;
       opacity: 1;
@@ -173,4 +175,5 @@
     border-radius: 5px;
   }
 }
+
 
