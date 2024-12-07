@@ -11,7 +11,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleLinkClick = () => {
-    setIsOpen(false); // Close the menu when a link is clicked
+    setIsOpen(false);
   };
 
   return (
@@ -28,7 +28,7 @@ const Navbar = () => {
                 priority
               />
             </Link>
-            <span className={styles.title}>AsyncDev</span>
+            <Link href="/"><h1 className={styles.title}>AsyncDev</h1></Link>
           </div>
           
           <button 
@@ -44,6 +44,7 @@ const Navbar = () => {
         <div className={`${styles.navbarContent} ${isOpen ? styles.isOpen : ''}`}>
           <div className={styles.navbarLinks}>
             <Link href="/Services" className={styles.navLink} onClick={handleLinkClick}>Services</Link>
+            <Link href="/Technology" className={styles.navLink} onClick={handleLinkClick}>Technology</Link>
             <Link href="/About" className={styles.navLink} onClick={handleLinkClick}>About</Link>
             <Link href="/Resources" className={styles.navLink} onClick={handleLinkClick}>Resources</Link>
             <Link href="/Contact" className={styles.navLink} onClick={handleLinkClick}>Contact</Link>

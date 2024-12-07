@@ -1,11 +1,7 @@
-// app/layout.tsx
 import localFont from "next/font/local";
 import "./globals.css";
 import { ReactNode } from "react";
-import Navbar from "./components/NavBar/Navbar";
 import Footer from "./Footer/Page";
-import Hero from "./Hero/Page";
-import Contact from "./Contact/page";
 import Header from "./components/Header/Header";
 
 const geistSans = localFont({
@@ -26,7 +22,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html cz-shortcut-listen="true">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <header>
           <Header />

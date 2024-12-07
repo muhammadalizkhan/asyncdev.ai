@@ -1,0 +1,67 @@
+// Technology.scss
+
+$primary-color: #333;
+$secondary-color: #555;
+$accent-color: #f4f4f4;
+$box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  padding: 2rem 0;
+  background-color: $accent-color;
+}
+
+.tech-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: $box-shadow;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    padding: 2rem;
+  }
+
+
+  h1,
+  h2 {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    color: $secondary-color;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out 0.5s forwards;
+  }
+}
