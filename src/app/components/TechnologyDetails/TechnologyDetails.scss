@@ -1,0 +1,125 @@
+// Base Colors and Styling
+$primary-color: #2b2b2b;
+$accent-color: #ff4081;
+$tab-hover-bg: rgba(0, 0, 0, 0.05);
+$tab-active-bg: #ff4081;
+$box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+$gradient-bg: linear-gradient(45deg, #f3f3f3, white);
+
+// Container Styling
+.technology-details-container {
+  background: $gradient-bg;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: $primary-color;
+  font-weight: 700;
+}
+
+// Tab Styling
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: $box-shadow;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 2px solid $primary-color;
+
+  .tab-button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: $primary-color;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    flex-grow: 1;
+    text-align: center;
+
+    &:hover {
+      background-color: $tab-hover-bg;
+    }
+
+    &.active {
+      background-color: $tab-active-bg;
+      color: white;
+      font-weight: 600;
+    }
+  }
+}
+
+// Tab Content Styling
+.tab-content {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: $box-shadow;
+  display: flex;
+  justify-content: center;
+}
+
+.technology-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  width: 100%;
+}
+
+.technology-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: $box-shadow;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .technology-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+}
+
+// Responsive Styles
+@media (max-width: 1024px) {
+  .tabs-container {
+    flex-direction: column;
+  }
+
+  .tabs {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .technology-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .technology-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .technology-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -3,194 +3,198 @@ $primary-color: #2b2b2b;
 $secondary-color: #777;
 $accent-color: #00bcd4;
 $highlight-color: #f39c12;
-$box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+$box-shadow: 1px 1px 1px 1px rgba(70, 69, 69, 0.2);
 $soft-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 $gradient-bg: linear-gradient(45deg white);
 
-// Animations
-@keyframes slideUp {
-  0% {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+// // Animations
+// @keyframes slideUp {
+//     0% {
+//         transform: translateY(10px);
+//         opacity: 0;
+//     }
+
+//     100% {
+//         transform: translateY(0);
+//         opacity: 1;
+//     }
+// }
 
 .tabs-container {
-  display: flex;
-  justify-content: center;
-  padding: 3rem 0;
-  background: $gradient-bg;
-  border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0;
+    background: $gradient-bg;
+    border-radius: 25px;
 }
 
 .vertical-tabs {
-  display: flex;
-  width: 90%;
-  background-color: white;
-  box-shadow: $box-shadow;
-  border-radius: 25px;
-  flex-wrap: wrap;
-  transition: all 0.3s ease;
-
-  .tab-buttons {
     display: flex;
-    flex-direction: column;
-    width: 300px;
-    border-right: 2px solid $secondary-color;
-    padding: 1.5rem;
-    background-color: #f8f8f8;
-    overflow-x: auto;
+    width: 90%;
+    // box-shadow: $box-shadow;
+    border-radius: 25px;
+    flex-wrap: wrap;
+    // transition: all 0.3s ease;
 
-    .tab-button {
-      background: none;
-      border: none;
-      padding: 15px;
-      margin: 8px 0;
-      font-size: 1.2rem;
-      color: $primary-color;
-      cursor: pointer;
-      text-align: left;
-      transition: all 0.3s ease;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-
-      &.active {
-        background-color: $highlight-color;
-        color: white;
-        font-weight: 600;
-        transform: scale(1.05);
-      }
-
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.05);
-        color: $accent-color;
-      }
-    }
-  }
-
-  .tab-content {
-    flex-grow: 1;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: $soft-shadow;
-    animation: slideUp 0.6s ease-out;
-
-    h2 {
-      font-size: 2.5rem;
-      color: $primary-color;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      font-weight: 700;
-    }
-
-    .technologies-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 25px;
-      width: 100%;
-
-      .technology-card {
+    .tab-buttons {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 15px;
-        box-shadow: $box-shadow;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        text-align: center;
+        width: 300px;
+        // border-right: 2px solid $secondary-color;
+        padding: 1.5rem;
+        // background-color: #f8f8f8;
+        overflow-x: auto;
 
-        &:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-          background-color: #f0f8ff;
-        }
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px;
+            margin: 8px 0;
+            font-size: 1.2rem;
+            color: $primary-color;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
 
-        .technology-image-wrapper {
-          width: 100px;
-          height: 100px;
-          margin-bottom: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+            &.active {
+                background-color: $highlight-color;
+                color: white;
+                font-weight: 600;
+                transform: scale(1.05);
+            }
 
-        .technology-name {
-          font-size: 1.1rem;
-          color: $primary-color;
-          font-weight: 600;
-          text-transform: capitalize;
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+                color: $accent-color;
+            }
         }
-      }
     }
-  }
+
+    .tab-content {
+        flex-grow: 1;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: $soft-shadow;
+        animation: slideUp 0.6s ease-out;
+
+        h2 {
+            font-size: 2.5rem;
+            color: $primary-color;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .technologies-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            width: 100%;
+
+            .technology-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: $box-shadow;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                text-align: center;
+                &:hover
+{
+                    transform: translateY(1px);
+                    box-shadow: 0 0.1px 0.1px rgba(0, 0, 0, 0.2);
+                    background-color: #f0f8ff;
+                    -webkit-transform: translateY(1px);
+                    -moz-transform: translateY(1px);
+                    -ms-transform: translateY(1px);
+                    -o-transform: translateY(1px);
+}
+
+                .technology-image-wrapper {
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .technology-name {
+                    font-size: 1.1rem;
+                    color: $primary-color;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
 }
 
 // Responsive Breakpoints
 @media (max-width: 1024px) {
-  .vertical-tabs {
-    flex-direction: column;
-    width: 95%;
+    .vertical-tabs {
+        flex-direction: column;
+        width: 95%;
 
-    .tab-buttons {
-      width: 100%;
-      flex-direction: row;
-      overflow-x: auto;
-      border-right: none;
-      border-bottom: 2px solid $secondary-color;
-      padding: 1rem;
-      scroll-behavior: smooth;
-    }
+        .tab-buttons {
+            width: 100%;
+            flex-direction: row;
+            overflow-x: auto;
+            border-right: none;
+            border-bottom: 2px solid $secondary-color;
+            padding: 1rem;
+            scroll-behavior: smooth;
+        }
 
-    .tab-buttons::-webkit-scrollbar {
-      display: none;
-    }
+        .tab-buttons::-webkit-scrollbar {
+            display: none;
+        }
 
-    .tab-content {
-      padding: 1.5rem;
-    }
+        .tab-content {
+            padding: 1.5rem;
+        }
 
-    .technologies-list {
-      grid-template-columns: repeat(3, 1fr);
+        .technologies-list {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
-  }
 }
 
 @media (max-width: 768px) {
-  .vertical-tabs {
-    .tab-buttons {
-      flex-direction: row;
-      justify-content: flex-start;
-      scrollbar-width: none;
-    }
+    .vertical-tabs {
+        .tab-buttons {
+            flex-direction: row;
+            justify-content: flex-start;
+            scrollbar-width: none;
+        }
 
-    .technologies-list {
-      grid-template-columns: repeat(2, 1fr);
+        .technologies-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
-  }
 }
 
 @media (max-width: 480px) {
-  .tabs-container {
-    padding: 1rem 0;
-  }
-
-  .vertical-tabs {
-    .tab-buttons .tab-button {
-      font-size: 1rem;
-      padding: 10px;
+    .tabs-container {
+        padding: 1rem 0;
     }
 
-    .technologies-list {
-      grid-template-columns: 1fr;
+    .vertical-tabs {
+        .tab-buttons .tab-button {
+            font-size: 1rem;
+            padding: 10px;
+        }
+
+        .technologies-list {
+            grid-template-columns: 1fr;
+        }
     }
-  }
 }

@@ -22,7 +22,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html cz-shortcut-listen="true">
+    <html  lang="en" cz-shortcut-listen="true">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <header>
           <Header />
