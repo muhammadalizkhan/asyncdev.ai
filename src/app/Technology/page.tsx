@@ -1,5 +1,8 @@
-import React from 'react'
-import './Technology.scss'
+'use client'; // Add this at the top of the file
+
+import React, { useState } from 'react';
+import './Technology.scss';
+import Tabs from '../components/Tabs/Tabs';
 
 export default function Technology() {
   return (
@@ -12,5 +15,5 @@ export default function Technology() {
         </p>
       </div>
     </section>
-  )
+  );
 }

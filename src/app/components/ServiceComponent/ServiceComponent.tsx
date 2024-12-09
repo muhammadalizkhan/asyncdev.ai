@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './ServiceComponent.module.scss';
+import "./ServiceComponent.scss"
 import { FaCode, FaSync, FaBolt, FaCogs, FaMobileAlt, FaDatabase, FaShieldAlt, FaCloud, FaBug } from 'react-icons/fa';
 
 const services = [

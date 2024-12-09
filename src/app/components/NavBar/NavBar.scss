@@ -1,4 +1,3 @@
-/* Navbar styling */
 .navbar {
   position: fixed;
   top: 10px;
@@ -118,7 +117,6 @@
   margin-left: 8px;
 }
 
-/* Mobile-specific styles */
 @media (max-width: 768px) {
   .navbar {
     position: static;
