@@ -26,7 +26,7 @@ const Tabs: React.FC = () => {
           <div className="technologies-list">
             {tabData[activeTab].technologies.map((tech, index) => (
               <div key={index} className="technology-card">
-                <div className="technology-image">
+                <div className="technology-image-wrapper">
                   <Image
                     src={tech.imageUrl}
                     alt={tech.name}
@@ -34,7 +34,7 @@ const Tabs: React.FC = () => {
                     height={100}
                   />
                 </div>
-                <span>{tech.name}</span>
+                <span className="technology-name">{tech.name}</span>
               </div>
             ))}
           </div>

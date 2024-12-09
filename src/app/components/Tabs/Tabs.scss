@@ -2,10 +2,10 @@
 $primary-color: #2b2b2b;
 $secondary-color: #777;
 $accent-color: #00bcd4;
-$highlight-color: #ff4081;
+$highlight-color: #f39c12;
 $box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 $soft-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-$gradient-bg: linear-gradient(45deg, #f3f3f3, white);
+$gradient-bg: linear-gradient(45deg white);
 
 // Animations
 @keyframes slideUp {
@@ -30,7 +30,6 @@ $gradient-bg: linear-gradient(45deg, #f3f3f3, white);
 .vertical-tabs {
   display: flex;
   width: 90%;
-  max-width: 1400px;
   background-color: white;
   box-shadow: $box-shadow;
   border-radius: 25px;
@@ -40,7 +39,7 @@ $gradient-bg: linear-gradient(45deg, #f3f3f3, white);
   .tab-buttons {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 300px;
     border-right: 2px solid $secondary-color;
     padding: 1.5rem;
     background-color: #f8f8f8;
@@ -128,6 +127,7 @@ $gradient-bg: linear-gradient(45deg, #f3f3f3, white);
           font-size: 1.1rem;
           color: $primary-color;
           font-weight: 600;
+          text-transform: capitalize;
         }
       }
     }
