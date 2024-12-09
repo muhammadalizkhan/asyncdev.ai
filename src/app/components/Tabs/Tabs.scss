@@ -1,0 +1,200 @@
+$primary-color: #2b2b2b;
+$secondary-color: #777;
+$accent-color: #00bcd4;
+$highlight-color: #ff4081;
+$box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+$soft-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+$gradient-bg: linear-gradient(45deg, #2196f3, #00bcd4);
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 0;
+  background: $gradient-bg;
+  border-radius: 15px;
+}
+
+.vertical-tabs {
+  display: flex;
+  width: 85%;
+  height: 100%;
+  background-color: white;
+  box-shadow: $box-shadow;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+
+  .tab-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    border-right: 2px solid $secondary-color;
+    padding: 1.5rem;
+    background-color: #f8f8f8;
+    transition: background-color 0.3s ease;
+
+    .tab-button {
+      background: none;
+      border: none;
+      padding: 15px;
+      margin: 8px 0;
+      font-size: 1.2rem;
+      color: $primary-color;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      width: 100%;
+      text-align: left;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 10px;
+      }
+
+      &.active {
+        background-color: $highlight-color;
+        color: white;
+        font-weight: 600;
+        transform: scale(1.05);
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: $accent-color;
+      }
+    }
+  }
+
+  .tab-content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: $soft-shadow;
+    animation: slideUp 0.6s ease-out;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h2 {
+      font-size: 2.5rem;
+      color: $primary-color;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 700;
+      transition: opacity 0.3s ease;
+    }
+
+    .technologies-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      width: 100%;
+      transition: transform 0.3s ease;
+
+      .technology-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: $box-shadow;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+          background-color: #f0f8ff;
+        }
+
+        .technology-image {
+          width: 80px;
+          height: 80px;
+          margin-bottom: 12px;
+          transition: transform 0.3s ease;
+        }
+
+        span {
+          font-size: 1.1rem;
+          color: $primary-color;
+          font-weight: 600;
+          text-align: center;
+          transition: color 0.3s ease;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .vertical-tabs {
+    width: 100%;
+    padding: 1rem;
+
+    .tab-buttons {
+      flex-direction: row;
+      padding: 0.5rem;
+      border-right: none;
+      justify-content: space-evenly;
+      border-bottom: 2px solid $secondary-color;
+    }
+
+    .tab-content {
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+
+    .technologies-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .vertical-tabs {
+    flex-direction: column;
+    padding: 1rem;
+
+    .tab-buttons {
+      flex-direction: row;
+      border-right: none;
+      border-bottom: 2px solid $secondary-color;
+      justify-content: space-evenly;
+      padding: 1rem;
+    }
+
+    .tab-content {
+      padding: 1.5rem;
+    }
+
+    .technologies-list {
+      grid-template-columns: 1fr;
+    }
+  }
+}

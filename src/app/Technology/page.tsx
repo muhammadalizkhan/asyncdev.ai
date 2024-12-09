@@ -1,5 +1,4 @@
-'use client'; // Add this at the top of the file
-
+'use client'; 
 import React, { useState } from 'react';
 import './Technology.scss';
 import Tabs from '../components/Tabs/Tabs';
@@ -14,6 +13,9 @@ export default function Technology() {
           Explore the technologies that power our solutions and witness the innovation firsthand! Here, we showcase our proficiency in a wide range of cutting-edge technologies across various domains of software development.
         </p>
       </div>
+      <section>
+      <Tabs />
+    </section>
     </section>
   );
 }

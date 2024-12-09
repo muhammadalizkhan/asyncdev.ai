@@ -1,0 +1,23 @@
+Nextjs: https://res.cloudinary.com/dbpimepiv/image/upload/v1733749806/Nextjs_fau8jn.png
+
+Svelte: https://res.cloudinary.com/dbpimepiv/image/upload/v1733749721/Svelte_w7ae5r.png
+
+Semantic-UI: https://res.cloudinary.com/dbpimepiv/image/upload/v1733749719/SemanticUI_ed7udu.png
+
+Remix: https://res.cloudinary.com/dbpimepiv/image/upload/v1733749717/Remix_wythsu.jpg
+
+PReact: https://res.cloudinary.com/dbpimepiv/image/upload/v1733749716/Preact_zotauv.png
+
+Jquery: https://res.cloudinary.com/dbpimepiv/image/upload/v1733749716/JQuery_apnht1.png
+
+Knockout: https://res.cloudinary.com/dbpimepiv/image/upload/v1733749715/Knockout_xx3ubj.png
+
+Emberjs: https://res.cloudinary.com/dbpimepiv/image/upload/v1733749713/emberjs_jh2sqn.png
+
+Backbonejs: https://res.cloudinary.com/dbpimepiv/image/upload/v1733749713/Backbonejs_qknghu.png
+
+Vue: https://res.cloudinary.com/dbpimepiv/image/upload/v1733748376/Vue_qh7im3.png
+
+React: https://res.cloudinary.com/dbpimepiv/image/upload/v1733748376/React_m2reon.png
+
+Angular: https://res.cloudinary.com/dbpimepiv/image/upload/v1733746328/Angular_w5on5h.png
