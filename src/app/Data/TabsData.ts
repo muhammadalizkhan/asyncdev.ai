@@ -3,7 +3,6 @@ export interface TabData {
     technologies: string[];
 }
 
-// Data for each tab with its corresponding technologies
 export const tabData: TabData[] = [
     {
         tabName: 'Frontend Development',
