@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import './Technology.scss';
 import Tabs from '../components/Tabs/Tabs';
 import TechnologyDetails from '../components/TechnologyDetails/TechnologyDetails';
-
+import Pricing from '../Pricing/Page';
+import PricingComponent from '../components/PricingComponent/PricingComponent';
 export default function Technology() {
   return (
     <section>
@@ -15,6 +16,8 @@ export default function Technology() {
         </p>
       </div>
       <Tabs />
+      <TechnologyDetails activeTab={0} />
+      <PricingComponent />
     </section>
   );
 }

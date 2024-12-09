@@ -1,39 +1,59 @@
 import React, { useState } from 'react';
-import { tabData } from '../../Data/TechnologyDetails';  // Assuming tabData is exported from this file
-import './TechnologyDetails.scss';  // Import custom styling (I'll provide the styles too)
+import { toolTabdata } from '@/app/Data/TechnologyDetails';
+import './TechnologyDetails.scss';
 
-export default function TechnologyDetails() {
-  const [activeTab, setActiveTab] = useState(0);  // To track the active tab
+const TechnologyDetails: React.FC = () => {
+  const [activeTab, setActiveTab] = useState(0); // Active tab starts as the first one
 
-  // Handle tab click
-  const handleTabClick = (index: React.SetStateAction<number>) => {
-    setActiveTab(index);  // Set the active tab based on the clicked tab
+  const handleTabChange = (index: number) => {
+    setActiveTab(index); // Change active tab when clicked
   };
 
+  // Get current tab data based on activeTab index
+  const currentTab = toolTabdata[activeTab];
+  const { tabName, tabContent } = currentTab;
+
   return (
-    <div className="technology-details-container">
-      <div className="tabs-container">
-        <div className="tabs">
-          {tabData.map((tab, index) => (
-            <button
-              key={index}
-              className={`tab-button ${activeTab === index ? 'active' : ''}`}
-              onClick={() => handleTabClick(index)}
-            >
-              {tab.tabName}
-            </button>
+    <section className="container">
+      <div className="intro-text">
+        <h1>Tools and Technologies</h1>
+        <p>
+          We leverage our deep industry expertise and strategic approach to create innovative solutions
+          that effectively address your business challenges – delivering true value and not just ticking
+          off tasks.
+        </p>
+      </div>
+
+      {/* Tab buttons for switching tabs */}
+      <div className="tabs">
+        {toolTabdata.map((tab, index) => (
+          <button
+            key={index}
+            className={`tab-button ${activeTab === index ? 'active' : ''}`}
+            onClick={() => handleTabChange(index)}
+          >
+            {tab.tabName}
+          </button>
+        ))}
+      </div>
+
+      {/* Tab content based on activeTab */}
+      <div className="tab-content">
+        <h2>{tabName}</h2>
+        <div className="technology-list">
+          {tabContent.map((item, index) => (
+            <div key={index} className="technology-card">
+              <img
+                src={item.imageUrl}
+                alt={`Technology ${index}`}
+                className="technology-image"
+              />
+            </div>
           ))}
         </div>
-        <div className="tab-content">
-          <div className="technology-list">
-            {tabData[activeTab].tabContent.map((item, index) => (
-              <div key={index} className="technology-card">
-                <img src={item.imageUrl} alt={`tech-${index}`} className="technology-image" />
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
+
+export default TechnologyDetails;
