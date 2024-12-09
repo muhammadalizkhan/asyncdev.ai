@@ -16,7 +16,7 @@ export default function Technology() {
         </p>
       </div>
       <Tabs />
-      <TechnologyDetails activeTab={0} />
+      <TechnologyDetails />
       <PricingComponent />
     </section>
   );
