@@ -1,22 +1,13 @@
+// Color Variables
 $primary-color: #2b2b2b;
 $secondary-color: #777;
 $accent-color: #00bcd4;
 $highlight-color: #ff4081;
 $box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 $soft-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-$gradient-bg: linear-gradient(45deg, #2196f3, #00bcd4);
+$gradient-bg: linear-gradient(45deg, #f3f3f3, white);
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+// Animations
 @keyframes slideUp {
   0% {
     transform: translateY(10px);
@@ -33,17 +24,18 @@ $gradient-bg: linear-gradient(45deg, #2196f3, #00bcd4);
   justify-content: center;
   padding: 3rem 0;
   background: $gradient-bg;
-  border-radius: 15px;
+  border-radius: 25px;
 }
 
 .vertical-tabs {
   display: flex;
-  width: 85%;
-  height: 100%;
+  width: 90%;
+  max-width: 1400px;
   background-color: white;
   box-shadow: $box-shadow;
-  border-radius: 15px;
-  transition: transform 0.3s ease;
+  border-radius: 25px;
+  flex-wrap: wrap;
+  transition: all 0.3s ease;
 
   .tab-buttons {
     display: flex;
@@ -52,7 +44,7 @@ $gradient-bg: linear-gradient(45deg, #2196f3, #00bcd4);
     border-right: 2px solid $secondary-color;
     padding: 1.5rem;
     background-color: #f8f8f8;
-    transition: background-color 0.3s ease;
+    overflow-x: auto;
 
     .tab-button {
       background: none;
@@ -63,16 +55,10 @@ $gradient-bg: linear-gradient(45deg, #2196f3, #00bcd4);
       color: $primary-color;
       cursor: pointer;
       text-align: left;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-      width: 100%;
-      text-align: left;
+      transition: all 0.3s ease;
       border-radius: 8px;
       display: flex;
       align-items: center;
-
-      span {
-        margin-left: 10px;
-      }
 
       &.active {
         background-color: $highlight-color;
@@ -95,9 +81,6 @@ $gradient-bg: linear-gradient(45deg, #2196f3, #00bcd4);
     border-radius: 15px;
     box-shadow: $soft-shadow;
     animation: slideUp 0.6s ease-out;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 
     h2 {
       font-size: 2.5rem;
@@ -105,17 +88,15 @@ $gradient-bg: linear-gradient(45deg, #2196f3, #00bcd4);
       margin-bottom: 1.5rem;
       text-align: center;
       font-weight: 700;
-      transition: opacity 0.3s ease;
     }
 
     .technologies-list {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 25px;
       width: 100%;
-      transition: transform 0.3s ease;
 
-      .technology-item {
+      .technology-card {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -124,49 +105,56 @@ $gradient-bg: linear-gradient(45deg, #2196f3, #00bcd4);
         background-color: #ffffff;
         border-radius: 15px;
         box-shadow: $box-shadow;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        transition: all 0.3s ease;
         cursor: pointer;
+        text-align: center;
 
         &:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+          transform: translateY(-10px);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
           background-color: #f0f8ff;
         }
 
-        .technology-image {
-          width: 80px;
-          height: 80px;
+        .technology-image-wrapper {
+          width: 100px;
+          height: 100px;
           margin-bottom: 12px;
-          transition: transform 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
-        span {
+        .technology-name {
           font-size: 1.1rem;
           color: $primary-color;
           font-weight: 600;
-          text-align: center;
-          transition: color 0.3s ease;
         }
       }
     }
   }
 }
 
+// Responsive Breakpoints
 @media (max-width: 1024px) {
   .vertical-tabs {
-    width: 100%;
-    padding: 1rem;
+    flex-direction: column;
+    width: 95%;
 
     .tab-buttons {
+      width: 100%;
       flex-direction: row;
-      padding: 0.5rem;
+      overflow-x: auto;
       border-right: none;
-      justify-content: space-evenly;
       border-bottom: 2px solid $secondary-color;
+      padding: 1rem;
+      scroll-behavior: smooth;
+    }
+
+    .tab-buttons::-webkit-scrollbar {
+      display: none;
     }
 
     .tab-content {
-      flex-direction: column;
       padding: 1.5rem;
     }
 
@@ -178,19 +166,27 @@ $gradient-bg: linear-gradient(45deg, #2196f3, #00bcd4);
 
 @media (max-width: 768px) {
   .vertical-tabs {
-    flex-direction: column;
-    padding: 1rem;
-
     .tab-buttons {
       flex-direction: row;
-      border-right: none;
-      border-bottom: 2px solid $secondary-color;
-      justify-content: space-evenly;
-      padding: 1rem;
+      justify-content: flex-start;
+      scrollbar-width: none;
     }
 
-    .tab-content {
-      padding: 1.5rem;
+    .technologies-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .tabs-container {
+    padding: 1rem 0;
+  }
+
+  .vertical-tabs {
+    .tab-buttons .tab-button {
+      font-size: 1rem;
+      padding: 10px;
     }
 
     .technologies-list {
