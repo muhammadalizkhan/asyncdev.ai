@@ -1,0 +1,94 @@
+.engagement-section {
+  background-color: #f4f4f4;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.engagement-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 2rem;
+  align-items: center;
+}
+
+.engagement-item {
+  width: 100%;
+  max-width: 350px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.engagement-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.engagement-item .text-content {
+  padding: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.engagement-item:hover .text-content {
+  background-color: #f67e35;
+  color: #fff;
+}
+
+.engagement-item h2 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.engagement-item p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.engagement-video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.consultation-btn {
+  background-color: #f67e35;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.consultation-btn:hover {
+  background-color: #e66a1a;
+}
+
+@media (max-width: 768px) {
+  .engagement-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

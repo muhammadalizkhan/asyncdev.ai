@@ -1,10 +1,11 @@
-'use client'; 
+'use client';
 import React, { useState } from 'react';
 import './Technology.scss';
 import Tabs from '../components/Tabs/Tabs';
 import TechnologyDetails from '../components/TechnologyDetails/TechnologyDetails';
 import Pricing from '../Pricing/Page';
 import PricingComponent from '../components/PricingComponent/PricingComponent';
+import ScheduleCall from '../ScheduleCall/Page';
 export default function Technology() {
   return (
     <section>
@@ -17,7 +18,6 @@ export default function Technology() {
       </div>
       <Tabs />
       <TechnologyDetails />
-      <PricingComponent />
     </section>
   );
 }
