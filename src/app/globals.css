@@ -1,7 +1,7 @@
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #f3f3f3;
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {

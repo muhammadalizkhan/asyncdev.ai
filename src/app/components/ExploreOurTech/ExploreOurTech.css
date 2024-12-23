@@ -1,0 +1,42 @@
+.explore-container {
+    text-align: start;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .description {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    width: 100%;
+  }
+  
+  .explore-button {
+    background-color: #f7cc00;
+    color: #333;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  
+  .explore-button:hover {
+    background-color: #e6b800;
+  }
+  
+  .arrow {
+    margin-left: 10px;
+    font-size: 1.2rem;
+  }
+  

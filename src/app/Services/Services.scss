@@ -1,0 +1,47 @@
+.services-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header-section {
+  background-color: #f4f4f4;
+  padding: 2rem 1rem;
+  border-radius: 8px;
+  text-align: center;  /* Center text horizontally */
+}
+
+.header-section h1 {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.header-section p {
+  font-size: 1.4rem;
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.build-btn {
+  background-color: #f67e35;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  -webkit-transition: background-color 0.3s;
+  -moz-transition: background-color 0.3s;
+  -ms-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+}
+
+.build-btn:hover {
+  background-color: #e66a1a;
+}

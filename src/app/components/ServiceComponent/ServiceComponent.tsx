@@ -8,6 +8,8 @@ const services = [
   { icon: <FaMobileAlt />, title: 'Mobile App Development', description: "Make your mobile app stand out from the crowd with Devsnic's Android and iOS development." },
   { icon: <FaCode />, title: 'Web Development', description: 'Deliver high-quality web development, design and functionality tailored for your business.' },
   { icon: <FaCogs />, title: 'DevOps', description: 'Speed up your development process and improve product quality with DevOps consulting and automation services.' },
+  { icon: <FaCogs />, title: 'DevOps', description: 'Speed up your development process and improve product quality with DevOps consulting and automation services.' },
+  { icon: <FaCogs />, title: 'DevOps', description: 'Speed up your development process and improve product quality with DevOps consulting and automation services.' },
   { icon: <FaShieldAlt />, title: 'Ecommerce Ecosystem', description: 'Keep your digital assets safe and protect your business from threats with our cybersecurity solutions.' },
   { icon: <FaSync />, title: 'UI/UX Development', description: 'Drive efficiency and growth with tailored and custom UI/UX solutions for your business.' },
   { icon: <FaCloud />, title: 'Cloud Migration & Management', description: 'Seamlessly transition your business operations to the cloud with secure and scalable solutions.' },

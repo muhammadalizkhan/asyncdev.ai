@@ -1,5 +1,15 @@
 .engagement-section {
-  background-color: #f4f4f4;
+  background: #f3f3f3;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  overflow: hidden;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .header {
@@ -19,6 +29,8 @@
   justify-content: space-evenly;
   gap: 2rem;
   align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .engagement-item {
@@ -80,6 +92,7 @@
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 30px; /* Added bottom margin to create space between button and next section */
 }
 
 .consultation-btn:hover {
