@@ -4,7 +4,7 @@ import "./ServiceComponent.scss"
 import { FaCode, FaSync, FaBolt, FaCogs, FaMobileAlt, FaDatabase, FaShieldAlt, FaCloud, FaBug } from 'react-icons/fa';
 
 const services = [
-  { icon: <FaDatabase />, title: 'Custom Development', description: 'Get custom software perfectly built for your business to boost productivity and efficiency.' },
+  { icon: <FaDatabase />, title: 'Custom Software Development', description: 'Get custom software perfectly built for your business to boost productivity and efficiency.' },
   { icon: <FaMobileAlt />, title: 'Mobile App Development', description: "Make your mobile app stand out from the crowd with Devsnic's Android and iOS development." },
   { icon: <FaCode />, title: 'Web Development', description: 'Deliver high-quality web development, design and functionality tailored for your business.' },
   { icon: <FaCogs />, title: 'DevOps', description: 'Speed up your development process and improve product quality with DevOps consulting and automation services.' },

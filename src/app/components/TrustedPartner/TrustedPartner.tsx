@@ -1,6 +1,8 @@
 import React from 'react';
 import './TrustedPartner.css';
-import { FaEye, FaHandsHelping, FaBullseye, FaRocket } from 'react-icons/fa'; 
+import { FaEye, FaHandsHelping, FaBullseye, FaRocket } from 'react-icons/fa';
+import TrustedPartnerImage from "../../assets/images/TrustedPartner.jpg";
+import Image from 'next/image';
 
 export default function TrustedPartner() {
   return (
@@ -13,7 +15,12 @@ export default function TrustedPartner() {
           </p>
         </div>
         <div className="header-image">
-          <img src="https://t4.ftcdn.net/jpg/06/16/07/25/360_F_616072570_qWHrHnaYlT4CZtwrr9OyyPfdCeo8TOW5.jpg" alt="3D person with briefcase" />
+          <Image 
+            src={TrustedPartnerImage} 
+            alt="Trusted Partner Image"
+            width={600}  // Specify width
+            height={400} // Specify height
+          />
         </div>
       </div>
       <div className="steps-section">
