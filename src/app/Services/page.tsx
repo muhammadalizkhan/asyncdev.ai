@@ -1,5 +1,5 @@
 import React from 'react';
-import './Services.scss';
+import './Services.css';
 import ServiceComponent from '../components/ServiceComponent/ServiceComponent';
 import ExploreOurTech from '../components/ExploreOurTech/ExploreOurTech'
 import TrustedPartner from '../components/TrustedPartner/TrustedPartner';

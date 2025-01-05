@@ -3,10 +3,6 @@
   width: 90%;
   margin: 0 auto;
   border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
   overflow: hidden;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -99,9 +95,18 @@
   background-color: #e66a1a;
 }
 
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .engagement-container {
     flex-direction: column;
     gap: 2rem;
+  }
+
+  .engagement-item {
+    max-width: 100%;
+  }
+
+  .engagement-video {
+    height: 180px; /* Slightly reduce height of video for mobile view */
   }
 }

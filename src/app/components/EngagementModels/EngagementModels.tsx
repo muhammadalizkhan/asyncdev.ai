@@ -1,5 +1,5 @@
 import React from 'react';
-import './EngagementModels.scss';
+import './EngagementModels.css';
 
 export default function EngagementModels() {
     return (
