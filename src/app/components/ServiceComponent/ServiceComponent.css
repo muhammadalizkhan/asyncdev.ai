@@ -1,0 +1,126 @@
+.service-card {
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: inherit; /* Inherit text color */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.services {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.services .services-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.services .services-para {
+  font-size: 1.5rem;
+  color: #333;
+  line-height: 1;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.services .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.services .service-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  cursor: pointer;
+}
+
+.services .service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #3a3a3a, #f7f7f7);
+  color: #ffffff;
+}
+
+.services .service-card:hover .service-title {
+  color: #ffffff;
+}
+
+.services .service-card:hover .service-description {
+  color: #f1f1f1;
+}
+
+.services .service-card .service-header {
+  display: flex;
+  align-items: center;
+}
+
+.services .service-card .service-header .service-icon {
+  font-size: 2.5rem;
+  color: #333;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.services .service-card .service-header .service-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.services .service-card .service-description {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.services .service-card .action-button {
+  padding: 12px 20px;
+  background-color: #f67e35;
+  color: #fff;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.services .service-card .action-button:hover {
+  background-color: #e66a1a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .services {
+    padding: 30px 10px;
+  }
+
+  .services .service-card {
+    padding: 15px;
+  }
+}
