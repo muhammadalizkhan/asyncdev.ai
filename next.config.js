@@ -7,7 +7,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ['asyncdev.vercel.app', 'res.cloudinary.com'],
+    domains: ['asyncdev.vercel.app', 'www.addevice.io', 'cdn.prod.website-files.com', 'res.cloudinary.com'],
   },
 }
  
