@@ -6,7 +6,7 @@ import { Box, Grid, Typography, IconButton } from "@mui/material";
 import { motion } from "framer-motion";
 import { PhoneAndroid, Apple, Devices, Engineering, Upgrade } from "@mui/icons-material";
 import MobileTechStack from "../../components/MobileTechStack/MobileTechStack";
-
+import MobileApplicationDevelopmentProcess from "../../components/MobileApplicationDevelopmentProcess/MobileApplicationDevelopmentProcess";
 const animationVariants = {
   initial: { opacity: 0, y: 50 },
   animate: { opacity: 1, y: 0 },
@@ -294,6 +294,7 @@ const MobileAppDevelopment = () => {
         </Box>
       </Box>
       <MobileTechStack />
+      <MobileApplicationDevelopmentProcess />
     </Box>
   );
 };
