@@ -42,11 +42,12 @@ const MobileTechStack = () => {
         <Typography
           variant="h3"
           sx={{
-            fontWeight: "700",
-            color: theme.palette.text.primary,
-            mb: 2,
-            fontSize: "2.5rem",
+            fontWeight: "800",
+            color: "#2c3e50",
+            mb: 4,
+            fontSize: { xs: "2rem", md: "2.75rem" },
             fontFamily: "'Poppins', sans-serif",
+            letterSpacing: "-0.03em",
           }}
         >
           Our Tech Stack
@@ -54,11 +55,14 @@ const MobileTechStack = () => {
         <Typography
           variant="body1"
           sx={{
-            color: theme.palette.text.secondary,
+            color: "#546e7a",
             mb: 6,
             fontSize: "1.1rem",
             lineHeight: "1.8",
             fontFamily: "'Roboto', sans-serif",
+            maxWidth: "800px",
+            mx: "auto",
+
           }}
         >
           Equipped with the latest tools, our teams deliver impactful solutions designed to grow your business.
