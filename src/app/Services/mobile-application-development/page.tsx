@@ -2,130 +2,146 @@
 
 import React from "react";
 import Image from "next/image";
-import { Box, Grid } from "@mui/material";
-import { motion } from "framer-motion";
+import { Box, Grid, Typography, IconButton } from "@mui/material";
+import { PhoneAndroid, Apple, Devices, Engineering, Upgrade } from "@mui/icons-material";
 
-const Page = () => {
+const MobileAppDevelopment = () => {
   return (
-    <Box sx={{ backgroundColor: "#f5f5f5", minHeight: "100vh", py: 8 }}>
-      <Grid container spacing={4} alignItems="center" justifyContent="center">
-        {/* Left Section - Text Content */}
+    <Box sx={{ py: 10, px: 10, }}>
+      <Grid container spacing={6} alignItems="center">
         <Grid item xs={12} md={6}>
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            style={{ padding: "1rem" }}
+          <Typography
+            variant="h4"
+            sx={{
+              fontWeight: "bold",
+              color: "#2c3e50",
+              mb: 3,
+            }}
           >
-            <Box sx={{ mb: 4 }}>
-              <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                style={{ color: "#008080", fontSize: "1.25rem", fontWeight: "bold", letterSpacing: "0.1em" }}
+            Our Mobile App Development Solutions
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "#606c76",
+              mb: 4,
+              fontSize: "1.1rem",
+              lineHeight: "1.8",
+            }}
+          >
+            Unlock Your Business Potential with Our Holistic Software Development Services.
+          </Typography>
+          <Box>
+            {[
+              {
+                icon: <PhoneAndroid sx={{ fontSize: "28px", color: "#fff" }} />,
+                title: "Android App Development",
+                description:
+                  "Unlock your Android's potential with Kotlin, Java, and Jetpack Compose for high-performance apps.",
+                bgColor: "#3DDC84",
+              },
+              {
+                icon: <Apple sx={{ fontSize: "28px", color: "#fff" }} />,
+                title: "iOS App Development",
+                description:
+                  "Develop reliable iOS apps using Swift, SwiftUI, and Objective-C for seamless Apple experiences.",
+                bgColor: "#A3AAAE",
+              },
+              {
+                icon: <Devices sx={{ fontSize: "28px", color: "#fff" }} />,
+                title: "Cross-Platform Development",
+                description:
+                  "Build apps with Flutter and React Native for both Android and iOS platforms.",
+                bgColor: "#007BFF",
+              },
+              {
+                icon: <Engineering sx={{ fontSize: "28px", color: "#fff" }} />,
+                title: "Custom App Development",
+                description:
+                  "Turn your ideas into reality with tailored apps built specifically for your business.",
+                bgColor: "#FFC107",
+              },
+              {
+                icon: <Upgrade sx={{ fontSize: "28px", color: "#fff" }} />,
+                title: "App Modernisation & Migration",
+                description:
+                  "Upgrade legacy apps to modern frameworks like Flutter and React Native.",
+                bgColor: "#4CAF50",
+              },
+            ].map((item, index) => (
+              <Box
+                key={index}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  mb: 4,
+                }}
               >
-                OVERVIEW
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                style={{ fontSize: "1rem", color: "#333", lineHeight: "1.75" }}
-              >
-                Every app we build is engineered to drive measurable business outcomes. With
-                expertise spanning cutting-edge native development, cross-platform solutions,
-                and enterprise-grade systems, our engineers transform bold ideas into dynamic
-                mobile experiences.
-              </motion.p>
-            </Box>
-
-            <Box>
-              <motion.h3
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                style={{ fontSize: "1.125rem", fontWeight: "bold", color: "#111", marginBottom: "1rem" }}
-              >
-                What we are good at:
-              </motion.h3>
-              <ul style={{ paddingLeft: "1rem", color: "#555", fontSize: "0.9rem", lineHeight: "1.8" }}>
-                <motion.li
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+                <IconButton
+                  sx={{
+                    backgroundColor: item.bgColor,
+                    width: 56,
+                    height: 56,
+                    borderRadius: "50%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    mr: 3,
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+                  }}
                 >
-                  <strong>Mobile-First Architecture:</strong> Leveraging agile methodologies
-                  to build scalable, responsive solutions that align with mobile-first
-                  strategies.
-                </motion.li>
-                <motion.li
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
-                  <strong>Enterprise Mobility:</strong> Developing robust, secure applications
-                  to streamline operations and enhance productivity for businesses of all sizes.
-                </motion.li>
-                <motion.li
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                  <strong>Integration Expertise:</strong> Seamlessly connecting mobile apps with
-                  third-party services, APIs, and backend systems.
-                </motion.li>
-                <motion.li
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                >
-                  <strong>Performance Optimization:</strong> Ensuring apps are fast, lightweight,
-                  and responsive, even under heavy user loads.
-                </motion.li>
-                <motion.li
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                >
-                  <strong>Custom Mobile Solutions:</strong> Building tailored apps to address
-                  specific business challenges and deliver measurable results.
-                </motion.li>
-              </ul>
-            </Box>
-          </motion.div>
+                  {item.icon}
+                </IconButton>
+                <Box>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: "bold",
+                      color: "#2c3e50",
+                      mb: 1,
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: "#606c76",
+                      lineHeight: "1.6",
+                      fontSize: "1rem",
+                    }}
+                  >
+                    {item.description}
+                  </Typography>
+                </Box>
+              </Box>
+            ))}
+          </Box>
         </Grid>
 
-        {/* Right Section - Image */}
-        <Grid item xs={12} md={6} sx={{ display: "flex", justifyContent: "center" }}>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            style={{ position: "relative", maxWidth: "600px", width: "100%" }}
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
             <Image
-              src="https://www.addevice.io/storage/ckeditor/uploads/images/65f840d316353_mobile.app.development.1920.1080.png"
-              alt="Payment Mobile App"
-              layout="responsive"
-              width={600}
-              height={400}
-              style={{ borderRadius: "8px", boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)" }}
+              src="https://www.intellectsoft.net/assets/a64085ef/img/mobile-app/Group286.webp"
+              alt="Mobile App Development"
+              width={700}
+              height={600}
+              style={{
+                borderRadius: "16px",
+                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+              }}
             />
-          </motion.div>
+          </Box>
         </Grid>
       </Grid>
     </Box>
   );
 };
 
-export default Page;
+export default MobileAppDevelopment;
