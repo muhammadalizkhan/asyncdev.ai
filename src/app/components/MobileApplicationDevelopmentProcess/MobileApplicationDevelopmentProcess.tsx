@@ -58,8 +58,8 @@ const MobileApplicationDevelopmentProcess = () => {
             height: { xs: "400px", md: "500px" },
             width: "100%",
             background: "#ffffff",
-            borderRadius: "16px",
-            boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.1)",
+            borderRadius: "6px",
+            // boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.1)",
             p: 3,
           }}
         >
