@@ -1,5 +1,6 @@
 import { Box, Grid, Typography, TextField, Checkbox, Button, Container, FormControlLabel, Stack } from "@mui/material"
 import { MessageCircle, MapPin, Phone, Facebook, Twitter, Linkedin, Youtube, Dribbble } from "lucide-react"
+import ScheduleStrategyCall from "../components/ScheduleStrategyCall/ScheduleStrategyCall"
 
 export default function Contact() {
     return (
@@ -142,6 +143,8 @@ export default function Contact() {
                     </Grid>
                 </Grid>
             </Box>
+            <ScheduleStrategyCall />
+
         </Container>
     )
 }
