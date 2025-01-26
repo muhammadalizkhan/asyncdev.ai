@@ -1,5 +1,3 @@
-"use client"; // Mark this as a Client Component for interactivity
-
 import React from "react";
 import Link from "next/link";
 import {
@@ -13,7 +11,7 @@ import {
   FaCloud,
   FaBug,
 } from "react-icons/fa";
-import "./ServiceComponent.css"; // Import your CSS file
+import "./ServiceComponent.css";
 
 const services = [
   {
