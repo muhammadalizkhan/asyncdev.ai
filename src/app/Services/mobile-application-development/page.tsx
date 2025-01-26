@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Box, Grid, Typography, IconButton } from "@mui/material";
 import { motion } from "framer-motion";
 import { PhoneAndroid, Apple, Devices, Engineering, Upgrade } from "@mui/icons-material";
+import MobileTechStack from "../../components/MobileTechStack/MobileTechStack";
 
 const animationVariants = {
   initial: { opacity: 0, y: 50 },
@@ -292,6 +293,7 @@ const MobileAppDevelopment = () => {
           </Grid>
         </Box>
       </Box>
+      <MobileTechStack />
     </Box>
   );
 };

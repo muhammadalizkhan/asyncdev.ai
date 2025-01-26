@@ -7,7 +7,15 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ['asyncdev.vercel.app', 'echoinnovateit.com', 'www.pptssolutions.com', 'www.intellectsoft.net', 'www.addevice.io', 'cdn.prod.website-files.com', 'res.cloudinary.com'],
+    domains: ['asyncdev.vercel.app', 
+              "upload.wikimedia.org",
+              'echoinnovateit.com',
+              'www.pptssolutions.com',
+              'www.intellectsoft.net',
+              'www.addevice.io',
+              'cdn.prod.website-files.com',
+               "developer.apple.com",
+              'res.cloudinary.com'],
   },
 }
  
