@@ -143,7 +143,7 @@ const MobileAppDevelopment = () => {
             >
               <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Image
-                  src="https://www.intellectsoft.net/assets/a64085ef/img/mobile-app/Group286.webp"
+                  src="https://echoinnovateit.com/wp-content/uploads/2023/08/mobile-app-development.png.webp"
                   alt="Mobile App Development"
                   width={700}
                   height={600}
@@ -277,13 +277,13 @@ const MobileAppDevelopment = () => {
               >
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                   <Image
-                    src="https://www.intellectsoft.net/assets/a64085ef/img/mobile-app/Group286.webp"
+                    src="https://www.pptssolutions.com/wp-content/uploads/2023/04/App-Design-Development-2.jpg"
                     alt="Payment App"
                     width={700}
                     height={600}
                     style={{
-                      borderRadius: "16px",
-                      boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.1)",
+                      borderRadius: "10px",
+                      boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
                     }}
                   />
                 </Box>
