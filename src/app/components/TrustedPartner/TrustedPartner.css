@@ -6,13 +6,12 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: #f4f4f4;
+  
 }
 
 .trusted-partner-container {
   width: 100%;
   padding: 60px 20px;
-  background: linear-gradient(to bottom, #ffffff, #f9f9f9);
 }
 
 .trusted-header {
@@ -41,7 +40,7 @@ body {
 }
 
 .header-image img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 12px;
   transition: transform 0.3s ease;
@@ -53,13 +52,13 @@ body {
 
 .steps-section {
   text-align: center;
-  margin-bottom: 60px;
+  /* margin-bottom: 20px; */
 }
 
 .steps-section h2 {
   font-size: 2.5rem;
   color: #333;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-weight: 700;
 }
 
@@ -76,7 +75,7 @@ body {
   padding: 20px;
   text-align: center;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }

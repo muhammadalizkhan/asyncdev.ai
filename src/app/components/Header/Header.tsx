@@ -1,10 +1,10 @@
 import React from 'react'
-import  Hero  from "../NavBar/Navbar"
+import Navbar from '../NavBar/Navbar'
 
 export default function Header() {
   return (
     <div>
-      <Hero />
+      <Navbar />
     </div>
   )
 }

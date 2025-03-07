@@ -1,94 +1,153 @@
 import React from "react";
 import Link from "next/link";
-import {
-  FaCode,
-  FaSync,
-  FaBolt,
-  FaCogs,
-  FaMobileAlt,
-  FaDatabase,
-  FaShieldAlt,
-  FaCloud,
-  FaBug,
-} from "react-icons/fa";
-import "./ServiceComponent.css";
+import { Box, Grid, Typography, Card, IconButton } from "@mui/material";
+import { FaCode, FaSync, FaBolt, FaCogs, FaMobileAlt, FaDatabase, FaShieldAlt, FaCloud, FaBug } from "react-icons/fa";
 
 const services = [
   {
     icon: <FaDatabase />,
     title: "Custom Software Development",
-    description:
-      "Get custom software perfectly built for your business to boost productivity and efficiency.",
+    description: "Tailored software solutions designed to enhance your business productivity and workflow.",
     path: "/Services/custom-software-development",
   },
   {
     icon: <FaMobileAlt />,
     title: "Mobile App Development",
-    description:
-      "Make your mobile app stand out from the crowd with Devsnic's Android and iOS development.",
+    description: "Crafting standout Android and iOS apps that elevate your mobile presence.",
     path: "/Services/mobile-application-development",
   },
   {
     icon: <FaCode />,
     title: "Web Development",
-    description:
-      "Deliver high-quality web development, design and functionality tailored for your business.",
+    description: "Creating responsive, modern, and high-performing web applications.",
     path: "/Services/web-development",
   },
   {
     icon: <FaCogs />,
     title: "DevOps",
-    description:
-      "Speed up your development process and improve product quality with DevOps consulting and automation services.",
+    description: "Streamlining development pipelines with expert DevOps consulting and automation.",
     path: "/Services/devops",
   },
   {
     icon: <FaShieldAlt />,
     title: "Ecommerce Ecosystem",
-    description:
-      "Keep your digital assets safe and protect your business from threats with our cybersecurity solutions.",
+    description: "Ensuring a secure and scalable ecosystem for your e-commerce business.",
     path: "/Services/ecommerce-ecosystem",
   },
   {
     icon: <FaSync />,
     title: "UI/UX Development",
-    description:
-      "Drive efficiency and growth with tailored and custom UI/UX solutions for your business.",
+    description: "Designing intuitive interfaces that drive engagement and customer satisfaction.",
     path: "/Services/ui-ux-development",
   },
   {
     icon: <FaCloud />,
     title: "Cloud Migration & Management",
-    description:
-      "Seamlessly transition your business operations to the cloud with secure and scalable solutions.",
+    description: "Seamlessly migrating your operations to the cloud with reliable management services.",
     path: "/Services/cloud-migration-management",
   },
   {
     icon: <FaBug />,
     title: "QA Testing & Automation",
-    description:
-      "Improve your software’s reliability with our comprehensive QA testing services.",
+    description: "Delivering flawless software through rigorous QA and automated testing solutions.",
     path: "/Services/qa-testing-automation",
   },
 ];
 
 export default function ServiceComponent() {
   return (
-    <div className="services">
-      <h2 className="services-title">
-        From Idea to Completion, We Bring Full-Stack Expertise
-      </h2>
-      <div className="services-grid">
+    <Box
+      sx={{
+        py: 10,
+        px: { xs: 2, md: 4 },
+        backgroundColor: "#f3f3f3", // Light background for the whole container
+      }}
+    >
+      <Typography
+        variant="h3"
+        align="center"
+        fontWeight="bold"
+        sx={{
+          mb: 6,
+          color: "#333",
+          letterSpacing: "0.1em",
+          fontFamily: "'Roboto', sans-serif", // Modern font for headings
+        }}
+      >
+        Our Services
+      </Typography>
+      <Grid container spacing={4}>
         {services.map((service, index) => (
-          <Link href={service.path} key={index} className="service-card">
-            <div className="service-header">
-              <div className="service-icon">{service.icon}</div>
-              <h3 className="service-title">{service.title}</h3>
-            </div>
-            <p className="service-description">{service.description}</p>
-          </Link>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+            <Link href={service.path} passHref>
+              <Card
+                sx={{
+                  p: 4,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "left",
+                  backgroundColor: "rgba(255, 255, 255, 0.6)",
+                  backdropFilter: "blur(10px)",
+                  borderRadius: "20px",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                  height: "100%",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-10px) scale(1.05)",
+                    boxShadow: "0 8px 25px rgba(0, 0, 0, 0.2)",
+                  },
+                }}
+              >
+                <IconButton
+                  disableRipple
+                  sx={{
+                    fontSize: "3rem",
+                    alignSelf: "flex-start",
+                    color: "#fff",
+                    background: "linear-gradient(135deg, #000000, #111)",
+                    p: 3,
+                    mb: 2,
+                    borderRadius: "10%",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+                    transition: "background 0.3s, transform 0.3s",
+                    "&:hover": {
+                      background: "linear-gradient(135deg, #581845, #111)",
+                      transform: "scale(1.1)",
+                    },
+                  }}
+                >
+                  {service.icon}
+                </IconButton>
+                <Typography
+                  fontSize={18}
+                  fontWeight="bold"
+                  sx={{
+                    mb: 1,
+                    color: "#333",
+                    alignSelf: "flex-start",
+                    transition: "color 0.3s",
+                    "&:hover": {
+                      color: "#2575fc",
+                    },
+                  }}
+                >
+                  {service.title}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: "#666",
+                    lineHeight: 1.8,
+                  }}
+                >
+                  {service.description}
+                </Typography>
+              </Card>
+            </Link>
+          </Grid>
         ))}
-      </div>
-    </div>
+      </Grid>
+    </Box>
   );
 }
