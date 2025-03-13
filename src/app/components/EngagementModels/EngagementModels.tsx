@@ -1,11 +1,14 @@
 import React from 'react';
+import { Button, Box, Typography } from '@mui/material';
 import './EngagementModels.css';
 
 export default function EngagementModels() {
     return (
         <section className="engagement-section">
             <div className="header">
-                <h1>Our Engagement Models</h1>
+                <Typography variant="h4" align="center" gutterBottom>
+                    Our Engagement Models
+                </Typography>
             </div>
             <div className="engagement-container">
                 <div className="engagement-item">
@@ -16,8 +19,10 @@ export default function EngagementModels() {
                         />
                     </video>
                     <div className="text-content">
-                        <h2>Project-Based Development</h2>
-                        <p>Assign dedicated PMs & developers for your software development project.</p>
+                        <Typography variant="h6">Project-Based Development</Typography>
+                        <Typography variant="body2">
+                            Assign dedicated PMs & developers for your software development project.
+                        </Typography>
                     </div>
                 </div>
                 <div className="engagement-item">
@@ -28,8 +33,10 @@ export default function EngagementModels() {
                         />
                     </video>
                     <div className="text-content">
-                        <h2>Team-Based Development</h2>
-                        <p>Deploy a cohesive team to deliver end-to-end, custom software solutions.</p>
+                        <Typography variant="h6">Team-Based Development</Typography>
+                        <Typography variant="body2">
+                            Deploy a cohesive team to deliver end-to-end, custom software solutions.
+                        </Typography>
                     </div>
                 </div>
                 <div className="engagement-item">
@@ -40,12 +47,23 @@ export default function EngagementModels() {
                         />
                     </video>
                     <div className="text-content">
-                        <h2>Staff Augmentation</h2>
-                        <p>Integrate top-tier app developers into your team for enhanced project success.</p>
+                        <Typography variant="h6">Staff Augmentation</Typography>
+                        <Typography variant="body2">
+                            Integrate top-tier app developers into your team for enhanced project success.
+                        </Typography>
                     </div>
                 </div>
             </div>
-            <button className="consultation-btn">Book a Free Consultation</button>
+            <Box display="flex" justifyContent="center" mt={3}>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    className="consultation-btn"
+                    size="large"
+                >
+                    Book a Free Consultation
+                </Button>
+            </Box>
         </section>
     );
 }

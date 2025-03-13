@@ -1,8 +1,7 @@
 .engagement-section {
-  background: #f3f3f3;
-  width: 90%;
+  background-color: white;
+  width: 100%;
   margin: 0 auto;
-  border-radius: 10px;
   overflow: hidden;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -11,12 +10,6 @@
 .header {
   text-align: center;
   margin-bottom: 3rem;
-}
-
-.header h1 {
-  font-size: 2.8rem;
-  color: #333;
-  margin-bottom: 1rem;
 }
 
 .engagement-container {
@@ -88,7 +81,7 @@
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px; /* Added bottom margin to create space between button and next section */
+  margin-bottom: 30px;
 }
 
 .consultation-btn:hover {
@@ -107,6 +100,6 @@
   }
 
   .engagement-video {
-    height: 180px; /* Slightly reduce height of video for mobile view */
+    height: 180px;
   }
 }

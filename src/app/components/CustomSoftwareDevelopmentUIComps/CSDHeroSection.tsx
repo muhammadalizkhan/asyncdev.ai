@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button"
 export default function CSDHeroSection() {
   return (
     <section className="relative min-h-[600px] w-full overflow-hidden">
-      {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
           src="https://s3.amazonaws.com/wordpress-production/wp-content/uploads/2016/03/how-to-run-a-meeting.jpg"
@@ -16,7 +15,6 @@ export default function CSDHeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/60" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-[600px] max-w-7xl items-center px-4 py-20 sm:px-6 lg:px-8">
         <motion.div
           className="max-w-2xl"
@@ -70,7 +68,6 @@ export default function CSDHeroSection() {
         </motion.div>
       </div>
 
-      {/* Decorative Elements */}
       <motion.div
         className="absolute bottom-0 left-0 h-32 w-full"
         initial={{ opacity: 0 }}
