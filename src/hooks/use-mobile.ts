@@ -3,23 +3,24 @@
 import { useState, useEffect } from "react"
 
 export const useMobile = () => {
-  const [isMobile, setIsMobile] = useState(false)
+  // Default to true for server-side rendering
+  const [isMobile, setIsMobile] = useState(true)
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768) // Adjust the breakpoint as needed
+    // Function to check if the device is mobile
+    const checkMobile = () => {
+      const width = window.innerWidth
+      setIsMobile(width < 768)
     }
 
-    // Set initial value
-    handleResize()
+    // Check immediately on mount
+    checkMobile()
 
-    // Listen for window resize events
-    window.addEventListener("resize", handleResize)
+    // Add event listener for window resize
+    window.addEventListener("resize", checkMobile)
 
-    // Clean up the event listener on unmount
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
+    // Clean up
+    return () => window.removeEventListener("resize", checkMobile)
   }, [])
 
   return isMobile
