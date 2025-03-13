@@ -273,7 +273,9 @@ export default function ServicesSection() {
               return (
                 <motion.div
                   key={index}
-                  ref={(el) => (cardRefs.current[index] = el)}
+                  ref={(el) => {
+                    cardRefs.current[index] = el;
+                  }}
                   initial={{ opacity: 0, y: 50 }}
                   animate={cardInViewStates.current[index] ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                   transition={{
