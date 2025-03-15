@@ -4,6 +4,8 @@ import Hero from "./components/Hero/Hero";
 import ScheduleCall from "./ScheduleCall/Page";
 import EngagementModels from "./components/EngagementModels/EngagementModels";
 import ExploreOurTech from "./components/ExploreOurTech/ExploreOurTech";
+import ChooseUs from "./components/ChooseUs/ChooseUs";
+import WhatMakesUsDifferent from "./components/WhatMakesUsDifferent/WhatMakesUsDifferent";
 
 export default function Page() {
   return (
@@ -11,6 +13,8 @@ export default function Page() {
       <Hero />
       <ServiceComponent />
       <PricingComponent />
+      <ChooseUs />
+      <WhatMakesUsDifferent />
       <EngagementModels />
       <ScheduleCall />
       <ExploreOurTech />
