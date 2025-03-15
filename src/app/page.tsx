@@ -13,13 +13,13 @@ export default function Page() {
     <>
       <Hero />
       <ServiceComponent />
-      <PricingComponent />
       <ChooseUs />
       <WhatMakesUsDifferent />
       <WhoWeAre />
-      <EngagementModels />
+      {/* <EngagementModels />
       <ScheduleCall />
-      <ExploreOurTech />
+      <PricingComponent />
+      <ExploreOurTech /> */}
     </>
   );
 }
