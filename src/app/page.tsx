@@ -6,6 +6,7 @@ import EngagementModels from "./components/EngagementModels/EngagementModels";
 import ExploreOurTech from "./components/ExploreOurTech/ExploreOurTech";
 import ChooseUs from "./components/ChooseUs/ChooseUs";
 import WhatMakesUsDifferent from "./components/WhatMakesUsDifferent/WhatMakesUsDifferent";
+import WhoWeAre from "./components/WhoWeAre/WhoWeAre";
 
 export default function Page() {
   return (
@@ -15,6 +16,7 @@ export default function Page() {
       <PricingComponent />
       <ChooseUs />
       <WhatMakesUsDifferent />
+      <WhoWeAre />
       <EngagementModels />
       <ScheduleCall />
       <ExploreOurTech />
