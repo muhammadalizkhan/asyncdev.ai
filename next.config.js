@@ -13,6 +13,7 @@ const nextConfig = {
       "developer.apple.com",
       "res.cloudinary.com",
       "cdn.dribbble.com",
+      "images.unsplash.com",
     ],
   },
 };
