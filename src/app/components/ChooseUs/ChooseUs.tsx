@@ -7,11 +7,6 @@ import { Button } from "@/components/ui/button"
 
 const features = [
   {
-    icon: Code,
-    title: "Custom Development",
-    description: "Tailored solutions built specifically for your unique business requirements and challenges.",
-  },
-  {
     icon: Layers,
     title: "Scalable Architecture",
     description: "Future-proof systems designed to grow seamlessly with your business needs.",
@@ -20,16 +15,6 @@ const features = [
     icon: Zap,
     title: "Rapid Delivery",
     description: "Efficient development processes ensuring quick time-to-market without compromising quality.",
-  },
-  {
-    icon: Globe,
-    title: "Global Expertise",
-    description: "Access to world-class talent with experience across diverse industries and technologies.",
-  },
-  {
-    icon: Cpu,
-    title: "Cutting-Edge Tech",
-    description: "Implementation of the latest technologies to give your business a competitive advantage.",
   },
   {
     icon: Gem,

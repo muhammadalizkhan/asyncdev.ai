@@ -1,215 +1,304 @@
-import { Box, Grid, Typography, TextField, Checkbox, Button, Container, FormControlLabel, Stack } from "@mui/material"
-import { MessageCircle, MapPin, Phone, Facebook, Twitter, Linkedin, Youtube, Dribbble } from "lucide-react"
-import ScheduleStrategyCall from "../components/ScheduleStrategyCall/ScheduleStrategyCall"
+"use client"
+import { motion } from "framer-motion"
+import { ArrowRight, Send, MessageSquare, Calendar, Mail, MapPin, Phone } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
 
-export default function Contact() {
-    return (
-        <Container maxWidth="lg" sx={{ py: 4 }}>
-            <Box
-                sx={{
-                    border: "1px solid #E5E7EB",
-                    borderRadius: "16px",
-                    overflow: "hidden",
-                }}
+// Generate grid background lines
+const generateGridLines = (count: number) => {
+  return Array.from({ length: count }).map((_, i) => i)
+}
+
+export default function ContactPage() {
+  // Grid lines
+  const horizontalLines = generateGridLines(12)
+  const verticalLines = generateGridLines(12)
+
+  return (
+    <div className="relative min-h-screen bg-black text-white pt-32 pb-20 overflow-hidden">
+      {/* Grid background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="h-full w-full grid grid-cols-12 opacity-15">
+          {verticalLines.map((i) => (
+            <div key={`v-${i}`} className="border-r border-white/10 h-full"></div>
+          ))}
+        </div>
+        <div className="absolute top-0 left-0 h-full w-full grid grid-rows-12 opacity-15">
+          {horizontalLines.map((i) => (
+            <div key={`h-${i}`} className="border-b border-white/10 w-full"></div>
+          ))}
+        </div>
+      </div>
+
+      <div className="container relative z-10 px-4 mx-auto">
+        {/* Header Section */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "100px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="h-[2px] bg-white mb-6 mx-auto"
+          />
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-5xl md:text-6xl font-bold tracking-tight mb-6"
+          >
+            Get in Touch
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-lg text-gray-300 max-w-2xl mx-auto"
+          >
+            Have a project in mind or want to schedule a strategy call? We're here to help you transform your digital
+            vision into reality.
+          </motion.p>
+        </div>
+
+        {/* Main Content */}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+            {/* Contact Information - 2 columns */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="lg:col-span-2 space-y-10"
             >
-                <Grid container>
-                    <Grid item xs={12} md={4} sx={{ p: { xs: 4, md: 6 }, bgcolor: "#FFFFFF" }}>
-                        <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
-                            <Box sx={{ mb: 6 }}>
-                                <Typography
-                                    variant="h5"
-                                    sx={{
-                                        fontWeight: 700,
-                                        color: "#09122C",
-                                        fontSize: { xs: "1.5rem", md: "2rem" },
-                                        letterSpacing: "-0.02em",
-                                    }}
-                                >
-                                    ASYNC DEV CO
-                                </Typography>
-                            </Box>
+              <div>
+                <h2 className="text-2xl font-bold mb-8 border-b border-white/10 pb-4">Contact Information</h2>
+                <div className="space-y-8">
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 border border-white/20 flex items-center justify-center mr-4">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-1">Email</h3>
+                      <p className="text-gray-400">info@asyndev.ai</p>
+                      <p className="text-gray-400">support@asyndev.ai</p>
+                    </div>
+                  </div>
 
-                            <Stack spacing={5} sx={{ flex: 1 }}>
-                                <ContactInfo
-                                    icon={<MessageCircle size={20} />}
-                                    title="Chat to us"
-                                    description="Our friendly team is here to help."
-                                    contact="contact@asyncdevco.com"
-                                />
-                                <ContactInfo
-                                    icon={<MapPin size={20} />}
-                                    title="Visit us"
-                                    description="Come say hello at our office HQ."
-                                    contact={
-                                        <>
-                                            100 Johar Town J2
-                                            <br />
-                                            Lahore Punjab 50000
-                                        </>
-                                    }
-                                />
-                                <ContactInfo
-                                    icon={<Phone size={20} />}
-                                    title="Call us"
-                                    description="Mon-Fri from 8am to 5pm."
-                                    contact="+92 (308) 1454 784 "
-                                />
-                            </Stack>
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 border border-white/20 flex items-center justify-center mr-4">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-1">Phone</h3>
+                      <p className="text-gray-400">+1 (555) 123-4567</p>
+                      <p className="text-gray-400">Mon-Fri, 9AM-6PM EST</p>
+                    </div>
+                  </div>
 
-                            <Stack direction="row" spacing={3} justifyContent="center" sx={{ mt: 6 }}>
-                                {[Facebook, Twitter, Linkedin, Youtube, Dribbble].map((Icon, index) => (
-                                    <Icon key={index} size={20} color="#09122C" />
-                                ))}
-                            </Stack>
-                        </Box>
-                    </Grid>
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 border border-white/20 flex items-center justify-center mr-4">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-1">Location</h3>
+                      <p className="text-gray-400">123 Innovation Drive</p>
+                      <p className="text-gray-400">San Francisco, CA 94103</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                    <Grid item xs={12} md={8} sx={{ bgcolor: "#DCFF50", p: { xs: 4, md: 6 } }}>
-                        <Box sx={{ maxWidth: 600, mx: "auto" }}>
-                            <Typography
-                                variant="h3"
-                                sx={{
-                                    mb: 2,
-                                    fontWeight: 800,
-                                    color: "#09122C",
-                                    fontSize: { xs: "2rem", md: "3rem" },
-                                    letterSpacing: "-0.02em",
-                                }}
-                            >
-                                Got ideas? We've got the skills. Let's team up.
-                            </Typography>
-                            <Typography variant="subtitle1" sx={{ mb: 6, color: "#09122C" }}>
-                                Tell us more about yourself and what you've got in mind.
-                            </Typography>
+              <div className="pt-8 border-t border-white/10">
+                <h3 className="text-xl font-bold mb-6">Connect With Us</h3>
+                <div className="flex space-x-4">
+                  {["Twitter", "LinkedIn", "GitHub", "Dribbble"].map((platform) => (
+                    <a
+                      key={platform}
+                      href="#"
+                      className="border border-white/20 hover:border-white/60 w-12 h-12 flex items-center justify-center transition-colors duration-300"
+                    >
+                      <span className="sr-only">{platform}</span>
+                      <div className="w-5 h-5 bg-white/80"></div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
 
-                            <Stack spacing={4}>
-                                <CustomTextField placeholder="Your name" />
-                                <CustomTextField placeholder="you@company.com" />
-                                <CustomTextField placeholder="Tell us a little about the project..." multiline rows={3} />
+            {/* Contact Form - 3 columns */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="lg:col-span-3 border border-white/10 p-8"
+            >
+              <div className="flex items-center space-x-6 mb-8 border-b border-white/10 pb-6">
+                <div className="flex items-center space-x-3">
+                  <MessageSquare className="h-6 w-6" />
+                  <h2 className="text-2xl font-bold">Contact Form</h2>
+                </div>
+                <div className="h-8 w-px bg-white/10"></div>
+                <a href="#strategy-call" className="flex items-center space-x-3 text-gray-400 hover:text-white">
+                  <Calendar className="h-6 w-6" />
+                  <span className="font-medium">Schedule a Call</span>
+                </a>
+              </div>
 
-                                <Box>
-                                    <Typography variant="subtitle1" sx={{ mb: 3, color: "#09122C", fontWeight: 600 }}>
-                                        How can we help?
-                                    </Typography>
-                                    <Grid container spacing={2}>
-                                        {[
-                                            "Website design",
-                                            "Content creation",
-                                            "UX design",
-                                            "Strategy & consulting",
-                                            "User research",
-                                            "Other",
-                                        ].map((label) => (
-                                            <Grid item xs={12} sm={6} key={label}>
-                                                <FormControlLabel
-                                                    control={
-                                                        <Checkbox
-                                                            sx={{
-                                                                color: "#09122C",
-                                                                "&.Mui-checked": {
-                                                                    color: "#09122C",
-                                                                },
-                                                            }}
-                                                        />
-                                                    }
-                                                    label={<Typography sx={{ color: "#09122C" }}>{label}</Typography>}
-                                                />
-                                            </Grid>
-                                        ))}
-                                    </Grid>
-                                </Box>
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName" className="text-sm font-medium text-gray-300">
+                      First Name*
+                    </Label>
+                    <Input
+                      id="firstName"
+                      placeholder="John"
+                      required
+                      className="bg-transparent border-white/20 focus:border-white text-white placeholder:text-gray-500 h-12"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="lastName" className="text-sm font-medium text-gray-300">
+                      Last Name*
+                    </Label>
+                    <Input
+                      id="lastName"
+                      placeholder="Doe"
+                      required
+                      className="bg-transparent border-white/20 focus:border-white text-white placeholder:text-gray-500 h-12"
+                    />
+                  </div>
+                </div>
 
-                                <Button
-                                    variant="contained"
-                                    fullWidth
-                                    sx={{
-                                        mt: 2,
-                                        bgcolor: "#09122C",
-                                        color: "white",
-                                        py: 2,
-                                        borderRadius: "8px",
-                                        textTransform: "none",
-                                        fontSize: "1rem",
-                                        fontWeight: 600,
-                                        "&:hover": {
-                                            bgcolor: "#1A2142",
-                                        },
-                                    }}
-                                >
-                                    Let's get started!
-                                </Button>
-                            </Stack>
-                        </Box>
-                    </Grid>
-                </Grid>
-            </Box>
-            <ScheduleStrategyCall />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-sm font-medium text-gray-300">
+                      Email Address*
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="john@example.com"
+                      required
+                      className="bg-transparent border-white/20 focus:border-white text-white placeholder:text-gray-500 h-12"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone" className="text-sm font-medium text-gray-300">
+                      Phone Number
+                    </Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="+1 (555) 123-4567"
+                      className="bg-transparent border-white/20 focus:border-white text-white placeholder:text-gray-500 h-12"
+                    />
+                  </div>
+                </div>
 
-        </Container>
-    )
+                <div className="space-y-2">
+                  <Label htmlFor="subject" className="text-sm font-medium text-gray-300">
+                    Subject*
+                  </Label>
+                  <Input
+                    id="subject"
+                    placeholder="What's this about?"
+                    required
+                    className="bg-transparent border-white/20 focus:border-white text-white placeholder:text-gray-500 h-12"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-sm font-medium text-gray-300">
+                    Message*
+                  </Label>
+                  <Textarea
+                    id="message"
+                    placeholder="Tell us about your project or inquiry..."
+                    required
+                    className="min-h-[150px] bg-transparent border-white/20 focus:border-white text-white placeholder:text-gray-500"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-white text-black hover:bg-gray-200 rounded-none py-6 text-base font-medium group"
+                >
+                  Send Message
+                  <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </form>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Strategy Call Section */}
+        <div id="strategy-call" className="max-w-6xl mx-auto mt-24 pt-16 border-t border-white/10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="space-y-6"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                Schedule a <span className="block text-4xl md:text-5xl font-extrabold mt-2">Strategy Call</span>
+              </h2>
+              <p className="text-lg text-gray-300">
+                Book a dedicated session with our experts to discuss your project in detail. We'll help you define the
+                scope, explore technical solutions, and create a roadmap for success.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "In-depth project analysis",
+                  "Technical feasibility assessment",
+                  "Budget and timeline planning",
+                  "Custom solution recommendations",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center">
+                    <div className="w-2 h-2 bg-white mr-3"></div>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button className="bg-white text-black hover:bg-gray-200 rounded-none px-8 py-7 text-lg font-medium group mt-4">
+                Book Your Call
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="relative aspect-square max-w-md mx-auto"
+            >
+              <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-4">
+                <div className="relative bg-white overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-1/3 h-1/3 bg-black"></div>
+                  </div>
+                </div>
+                <div className="relative bg-black border border-white overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-1/3 h-1/3 bg-white"></div>
+                  </div>
+                </div>
+                <div className="relative bg-black border border-white overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-1/3 h-1/3 bg-white"></div>
+                  </div>
+                </div>
+                <div className="relative bg-white overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-1/3 h-1/3 bg-black"></div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
-
-interface ContactInfoProps {
-    icon: React.ReactNode;
-    title: string;
-    description: string;
-    contact: React.ReactNode;
-}
-
-const ContactInfo = ({ icon, title, description, contact }: ContactInfoProps) => (
-    <Stack direction="row" spacing={3} alignItems="flex-start">
-        <Box
-            sx={{
-                p: 1,
-                borderRadius: "8px",
-                bgcolor: "#F3F4F6",
-                color: "#09122C",
-                display: "flex",
-            }}
-        >
-            {icon}
-        </Box>
-        <Box>
-            <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1, color: "#09122C" }}>
-                {title}
-            </Typography>
-            <Typography variant="body2" sx={{ mb: 1, color: "#09122C" }}>
-                {description}
-            </Typography>
-            <Typography variant="body2" sx={{ color: "#09122C", fontWeight: 500 }}>
-                {contact}
-            </Typography>
-        </Box>
-    </Stack>
-)
-
-const CustomTextField = ({ multiline = false, rows = 1, ...props }) => (
-    <TextField
-        fullWidth
-        variant="standard"
-        multiline={multiline}
-        rows={rows}
-        InputProps={{
-            disableUnderline: true,
-            sx: {
-                fontSize: "1rem",
-                "&::placeholder": {
-                    color: "#09122C",
-                    opacity: 0.7,
-                },
-            },
-        }}
-        sx={{
-            "& .MuiInputBase-input": {
-                borderBottom: "1px solid #09122C",
-                pb: 1,
-                color: "#09122C",
-                "&:focus": {
-                    borderBottom: "2px solid #09122C",
-                },
-            },
-        }}
-        {...props}
-    />
-)
-
