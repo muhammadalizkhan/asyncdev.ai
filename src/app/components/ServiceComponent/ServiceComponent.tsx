@@ -501,7 +501,6 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        {/* Simplified CTA for mobile, animated for desktop */}
         <motion.div
           className="flex justify-center mt-12 md:mt-16"
           initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
@@ -531,4 +530,3 @@ export default function ServicesSection() {
     </motion.section>
   )
 }
-
