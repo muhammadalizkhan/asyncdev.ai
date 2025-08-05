@@ -14,6 +14,7 @@ const nextConfig = {
       "res.cloudinary.com",
       "cdn.dribbble.com",
       "images.unsplash.com",
+      "images.remotePatterns",
     ],
   },
 };

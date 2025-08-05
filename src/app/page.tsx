@@ -7,19 +7,21 @@ import ExploreOurTech from "./components/ExploreOurTech/ExploreOurTech";
 import ChooseUs from "./components/ChooseUs/ChooseUs";
 import WhatMakesUsDifferent from "./components/WhatMakesUsDifferent/WhatMakesUsDifferent";
 import WhoWeAre from "./components/WhoWeAre/WhoWeAre";
+import OurExpertise from "./Our-Expertise/ourExperties";
 
 export default function Page() {
   return (
     <>
       <Hero />
+      <OurExpertise />
       <ServiceComponent />
       <ChooseUs />
       <WhatMakesUsDifferent />
       <WhoWeAre />
-      {/* <EngagementModels />
+     <EngagementModels />
       <ScheduleCall />
       <PricingComponent />
-      <ExploreOurTech /> */}
+      <ExploreOurTech />
     </>
   );
 }

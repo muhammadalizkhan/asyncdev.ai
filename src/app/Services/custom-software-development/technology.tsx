@@ -1,21 +1,17 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
+import Image from "next/image" // Import next/image
 import { Code2, Server, Brain, Database, Palette, TestTube, Rocket, Globe, Zap } from "lucide-react"
 
-// Helper function to get a dynamic logo URL (simulating a logo API)
-// In a real app, this might fetch from a service like Simple Icons or your own CDN
+// Helper function to get a dynamic logo URL for next/image
 const getTechLogoUrl = (techName: string) => {
-  // Convert name to a slug for URL
   const slug = techName
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "")
-  // This is a placeholder URL. In a real scenario, you'd use a service like:
-  // `https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${slug}.svg`
-  // Or your own image CDN like Vercel Blob: `/api/images/tech/${slug}.png`
-  // For now, we'll use a generic placeholder that still generates an image.
+  // Using placeholder.svg with a query for dynamic image generation
   return `/placeholder.svg?height=128&width=128&query=${slug}-logo`
 }
 
@@ -401,73 +397,82 @@ export default function Technology() {
           </div>
         </div>
 
-        {/* Technology Cards & Category Description */}
-        <motion.div
-          key={activeTab} // Keep the key on the outer motion.div for proper animation
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          {/* Category Description - NOW INSIDE THE CONDITIONAL BLOCK */}
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              {(() => {
-                const IconComponent = technologyCategories[activeTab].icon
-                return <IconComponent className="w-6 h-6 text-white" />
-              })()}
-              <h2 className="text-2xl font-bold text-white">{technologyCategories[activeTab].title}</h2>
-            </div>
-            <p className="text-gray-300 max-w-2xl mx-auto">{technologyCategories[activeTab].description}</p>
-          </div>
-
-          {/* Technology Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {technologyCategories[activeTab].technologies.map((tech, index) => (
+        {/* Dynamic Content based on Active Tab */}
+        <AnimatePresence mode="wait">
+          {Object.entries(technologyCategories).map(([key, category]) =>
+            activeTab === key ? (
               <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, y: 30 }}
+                key={key}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative"
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
               >
-                {/* Glassy card background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-white/[0.03] to-transparent rounded-2xl backdrop-blur-xl" />
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/[0.02] to-white/[0.05] rounded-2xl" />
-                <div className="absolute inset-[1px] bg-black/20 rounded-2xl backdrop-blur-sm" />
-
-                {/* Shiny border effect */}
-                <div className="absolute inset-0 rounded-2xl border border-white/20 group-hover:border-white/30 transition-colors duration-500" />
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/[0.05] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                {/* Content */}
-                <div className="relative p-6 h-full">
-                  {/* Technology Image */}
-                  <div className="mb-6 overflow-hidden rounded-xl">
-                    <img
-                      src={tech.image || "/placeholder.svg"} // Use the dynamically generated URL
-                      alt={tech.name}
-                      className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-500"
-                      crossOrigin="anonymous"
-                    />
+                {/* Category Description */}
+                <div className="text-center mb-12">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    {(() => {
+                      const IconComponent = category.icon
+                      return <IconComponent className="w-6 h-6 text-white" />
+                    })()}
+                    <h2 className="text-2xl font-bold text-white">{category.title}</h2>
                   </div>
+                  <p className="text-gray-300 max-w-2xl mx-auto">{category.description}</p>
+                </div>
 
-                  {/* Header */}
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-lg font-bold text-white group-hover:text-gray-100 transition-colors duration-300">
-                      {tech.name}
-                    </h3>
-                    <span className="text-xs font-medium text-blue-400 bg-blue-400/10 px-2 py-1 rounded-md border border-blue-400/20">
-                      {tech.category}
-                    </span>
-                  </div>
+                {/* Technology Cards */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {category.technologies.map((tech, index) => (
+                    <motion.div
+                      key={tech.name}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="group relative"
+                    >
+                      {/* Glassy card background */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-white/[0.03] to-transparent rounded-2xl backdrop-blur-xl" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/[0.02] to-white/[0.05] rounded-2xl" />
+                      <div className="absolute inset-[1px] bg-black/20 rounded-2xl backdrop-blur-sm" />
 
-                  {/* Description */}
-                  <p className="text-sm text-gray-400 leading-relaxed">{tech.description}</p>
+                      {/* Shiny border effect */}
+                      <div className="absolute inset-0 rounded-2xl border border-white/20 group-hover:border-white/30 transition-colors duration-500" />
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/[0.05] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                      {/* Content */}
+                      <div className="relative p-6 h-full">
+                        {/* Technology Image */}
+                        <div className="mb-6 overflow-hidden rounded-xl">
+                          <Image
+                            src={tech.image || "/placeholder.svg"} // Use the dynamically generated URL
+                            alt={tech.name}
+                            width={128} // Explicit width for next/image
+                            height={128} // Explicit height for next/image
+                            className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-500"
+                            priority={index < 3} // Prioritize loading for first few images
+                          />
+                        </div>
+
+                        {/* Header */}
+                        <div className="flex items-start justify-between mb-4">
+                          <h3 className="text-lg font-bold text-white group-hover:text-gray-100 transition-colors duration-300">
+                            {tech.name}
+                          </h3>
+                          <span className="text-xs font-medium text-blue-400 bg-blue-400/10 px-2 py-1 rounded-md border border-blue-400/20">
+                            {tech.category}
+                          </span>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-sm text-gray-400 leading-relaxed">{tech.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </motion.div>
-            ))}
-          </div>
-        </motion.div>
+            ) : null,
+          )}
+        </AnimatePresence>
 
         {/* CTA Section */}
         <motion.div
