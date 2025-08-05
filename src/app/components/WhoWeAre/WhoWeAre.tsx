@@ -7,40 +7,31 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Code, Compass, HeartHandshake, Lightbulb, Rocket, Trophy, Users } from "lucide-react"
-import { cn } from "@/lib/utils"
 
 const companyValues = [
   {
     id: "innovation",
-    icon: <Lightbulb className="h-5 w-5" />,
+    icon: Lightbulb,
     title: "Innovation",
     description: "We constantly push boundaries to create solutions that are ahead of the curve.",
-    color: "text-amber-600",
-    bgColor: "bg-amber-50",
   },
   {
     id: "excellence",
-    icon: <Trophy className="h-5 w-5" />,
+    icon: Trophy,
     title: "Excellence",
     description: "We're committed to delivering exceptional quality in everything we do.",
-    color: "text-blue-600",
-    bgColor: "bg-blue-50",
   },
   {
     id: "collaboration",
-    icon: <HeartHandshake className="h-5 w-5" />,
+    icon: HeartHandshake,
     title: "Collaboration",
     description: "We believe the best solutions come from working together with our clients.",
-    color: "text-green-600",
-    bgColor: "bg-green-50",
   },
   {
     id: "integrity",
-    icon: <Compass className="h-5 w-5" />,
+    icon: Compass,
     title: "Integrity",
     description: "We maintain the highest standards of honesty and transparency in all our dealings.",
-    color: "text-purple-600",
-    bgColor: "bg-purple-50",
   },
 ]
 
@@ -107,44 +98,97 @@ export default function WhoWeAre() {
   const [activeTab, setActiveTab] = useState("story")
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white overflow-hidden">
-      <div className="container px-4 md:px-6">
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center max-w-6xl mx-auto">
+    <section className="relative py-0 overflow-hidden bg-black text-white">
+      <div className="absolute inset-0">
+        <div className="h-full w-full opacity-[0.02]">
+          <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
+        </div>
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl opacity-10"
+          animate={{
+            scale: [1, 1.05, 1],
+            opacity: [0.1, 0.15, 0.1],
+          }}
+          transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl opacity-10"
+          animate={{
+            scale: [1, 1.05, 1],
+            opacity: [0.1, 0.15, 0.1],
+          }}
+          transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.5 }}
+        />
+      </div>
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          className="absolute top-[10%] left-[5%] w-32 h-32 bg-white/5 rounded-lg rotate-45 backdrop-blur-xl"
+          animate={{
+            y: [0, 30, 0],
+            x: [0, -15, 0],
+            rotate: [45, 55, 45],
+            opacity: [0.15, 0.3, 0.15],
+          }}
+          transition={{ duration: 10, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-[15%] right-[8%] w-36 h-36 bg-white/5 rounded-full backdrop-blur-xl"
+          style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
+          animate={{
+            y: [0, -35, 0],
+            x: [0, 20, 0],
+            rotate: [0, 15, 0],
+            opacity: [0.15, 0.3, 0.15],
+          }}
+          transition={{ duration: 12, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
+        />
+        <motion.div
+          className="absolute top-1/2 right-[10%] w-28 h-28 bg-white/5 rounded-full backdrop-blur-xl"
+          animate={{
+            y: [0, 20, 0],
+            x: [0, -15, 0],
+            opacity: [0.12, 0.25, 0.12],
+          }}
+          transition={{ duration: 9, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.5 }}
+        />
+      </div>
+
+      <div className="container relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center mb-16 md:mb-24">
           <div>
-            <Badge className="mb-3" variant="outline">
+            <Badge className="mb-3 bg-white/10 text-gray-300 border border-white/20" variant="outline">
               Who We Are
             </Badge>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-              Crafting Digital Excellence Since 2015
+            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+              <span className="block">Crafting Digital</span>
+              <span className="block text-5xl sm:text-6xl md:text-7xl font-extrabold mt-2">Excellence Since 2015</span>
             </h2>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-lg md:text-xl text-gray-300 mb-8">
               We're a team of passionate technologists, designers, and problem solvers dedicated to transforming ideas
               into powerful software solutions. With expertise across multiple domains and technologies, we partner with
               businesses to create digital experiences that drive growth and innovation.
             </p>
-
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="flex flex-col items-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-3xl font-bold text-primary mb-1">8+</div>
-                <div className="text-sm text-center text-muted-foreground">Years of Excellence</div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col items-center p-4 bg-white/5 border border-white/10 rounded-lg">
+                <div className="text-3xl font-bold text-white mb-1">8+</div>
+                <div className="text-sm text-center text-gray-300">Years of Excellence</div>
               </div>
-              <div className="flex flex-col items-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-3xl font-bold text-primary mb-1">100+</div>
-                <div className="text-sm text-center text-muted-foreground">Successful Projects</div>
+              <div className="flex flex-col items-center p-4 bg-white/5 border border-white/10 rounded-lg">
+                <div className="text-3xl font-bold text-white mb-1">100+</div>
+                <div className="text-sm text-center text-gray-300">Successful Projects</div>
               </div>
-              <div className="flex flex-col items-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-3xl font-bold text-primary mb-1">50+</div>
-                <div className="text-sm text-center text-muted-foreground">Team Members</div>
+              <div className="flex flex-col items-center p-4 bg-white/5 border border-white/10 rounded-lg">
+                <div className="text-3xl font-bold text-white mb-1">50+</div>
+                <div className="text-sm text-center text-gray-300">Team Members</div>
               </div>
-              <div className="flex flex-col items-center p-4 bg-muted/30 rounded-lg">
-                <div className="text-3xl font-bold text-primary mb-1">12</div>
-                <div className="text-sm text-center text-muted-foreground">Industry Awards</div>
+              <div className="flex flex-col items-center p-4 bg-white/5 border border-white/10 rounded-lg">
+                <div className="text-3xl font-bold text-white mb-1">12</div>
+                <div className="text-sm text-center text-gray-300">Industry Awards</div>
               </div>
             </div>
           </div>
-
           <div className="relative">
-            <div className="absolute -z-10 rounded-full bg-primary/5 blur-3xl w-full h-full transform -translate-y-1/4 translate-x-1/4" />
+            <div className="absolute -z-10 rounded-full bg-white/5 blur-3xl w-full h-full transform -translate-y-1/4 translate-x-1/4" />
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <motion.div
@@ -214,171 +258,31 @@ export default function WhoWeAre() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto mt-16 md:mt-24">
+        <div className="mt-16 md:mt-24">
           <div className="text-center mb-10">
             <h3 className="text-2xl font-bold mb-4">Our Core Values</h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-gray-300 max-w-2xl mx-auto">
               These principles guide everything we do, from how we develop software to how we interact with our clients.
             </p>
           </div>
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {companyValues.map((value) => (
-              <Card key={value.id} className="border bg-white">
-                <CardContent className="p-6">
-                  <div className={cn("rounded-lg p-3 w-fit mb-4", value.bgColor, value.color)}>{value.icon}</div>
-                  <h4 className="text-lg font-semibold mb-2">{value.title}</h4>
-                  <p className="text-muted-foreground text-sm">{value.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {companyValues.map((value) => {
+              const IconComponent = value.icon
+              return (
+                <Card key={value.id} className="border bg-black/40 backdrop-blur-xl border-white/10 text-white">
+                  <CardContent className="p-6">
+                    <div className="w-16 h-16 rounded-lg bg-white/5 flex items-center justify-center mb-4">
+                      <IconComponent className="h-8 w-8 text-white" />
+                    </div>
+                    <h4 className="text-xl font-semibold mb-2">{value.title}</h4>
+                    <p className="text-gray-300 text-base">{value.description}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
-        </div>
-
-        <div className="max-w-6xl mx-auto mt-16 md:mt-24">
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <div className="flex justify-center mb-8">
-              <TabsList>
-                <TabsTrigger value="story" className="px-6">
-                  Our Story
-                </TabsTrigger>
-                <TabsTrigger value="team" className="px-6">
-                  Leadership
-                </TabsTrigger>
-                <TabsTrigger value="approach" className="px-6">
-                  Our Approach
-                </TabsTrigger>
-              </TabsList>
-            </div>
-
-            <TabsContent value="story" className="mt-0">
-              <div className="relative">
-                <div className="absolute left-0 top-0 w-px h-full bg-border ml-4 sm:ml-6 z-0" />
-                <div className="space-y-8 relative z-10">
-                  {milestones.map((milestone, index) => (
-                    <motion.div
-                      key={milestone.year}
-                      initial={{ x: -20, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex gap-4 sm:gap-6"
-                    >
-                      <div className="flex flex-col items-center">
-                        <div className="rounded-full bg-primary text-primary-foreground w-8 h-8 flex items-center justify-center text-sm font-medium">
-                          <Rocket className="h-4 w-4" />
-                        </div>
-                        <div className="text-sm font-semibold mt-2">{milestone.year}</div>
-                      </div>
-                      <div className="bg-muted/30 rounded-lg p-4 sm:p-6 flex-1">
-                        <h4 className="font-semibold mb-2">{milestone.title}</h4>
-                        <p className="text-muted-foreground text-sm">{milestone.description}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="team" className="mt-0">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {teamMembers.map((member, index) => (
-                  <motion.div
-                    key={member.name}
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <Card className="overflow-hidden border bg-white h-full">
-                      <div className="aspect-square relative">
-                        <Image
-                          src={member.image || "/placeholder.svg"}
-                          alt={member.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <CardContent className="p-4">
-                        <h4 className="font-semibold">{member.name}</h4>
-                        <p className="text-primary text-sm mb-2">{member.role}</p>
-                        <p className="text-muted-foreground text-sm">{member.bio}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="approach" className="mt-0">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h4 className="text-xl font-semibold mb-4">Our Development Philosophy</h4>
-                  <p className="text-muted-foreground mb-6">
-                    We believe in a collaborative, iterative approach that puts your business goals at the center of
-                    everything we do. Our development process is designed to be transparent, efficient, and focused on
-                    delivering real value.
-                  </p>
-
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <div className="rounded-full bg-primary/10 p-1 mt-1">
-                        <Code className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <h5 className="font-medium">Agile Methodology</h5>
-                        <p className="text-sm text-muted-foreground">
-                          We work in short, focused sprints to deliver value quickly and adapt to changing requirements.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="rounded-full bg-primary/10 p-1 mt-1">
-                        <Users className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <h5 className="font-medium">User-Centered Design</h5>
-                        <p className="text-sm text-muted-foreground">
-                          We put users at the heart of our design process to create intuitive, engaging experiences.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <div className="rounded-full bg-primary/10 p-1 mt-1">
-                        <Rocket className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <h5 className="font-medium">Continuous Improvement</h5>
-                        <p className="text-sm text-muted-foreground">
-                          We're always learning, refining our processes, and staying ahead of industry trends.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                    alt="Our approach"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                    <div className="p-6 text-white">
-                      <h4 className="font-semibold text-lg mb-2">Collaborative Workshops</h4>
-                      <p className="text-sm text-white/80">
-                        We begin every project with in-depth discovery sessions to understand your vision.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
-          </Tabs>
         </div>
       </div>
     </section>
   )
 }
-
