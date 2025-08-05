@@ -6,8 +6,7 @@ import { ArrowRight } from "lucide-react"
 
 export default function Hero() {
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-black text-white">
-      {/* Grid background */}
+    <div className="relative py-20 min-h-screen overflow-hidden bg-black text-white">
       <div className="absolute inset-0 overflow-hidden">
         <div className="h-full w-full grid grid-cols-12 opacity-15">
           {Array(12)
@@ -26,10 +25,8 @@ export default function Hero() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 min-h-screen flex flex-col">
-        {/* Main content area */}
         <div className="flex-grow flex items-center py-12 sm:py-16 lg:py-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center w-full">
-            {/* Text content - spans 6 columns */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
