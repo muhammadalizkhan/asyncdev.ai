@@ -1,8 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Plus, Minus } from "lucide-react" // Using Plus/Minus for custom trigger icon
+import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react"
+import { Plus } from "lucide-react"
 
 const faqs = [
   {
@@ -43,114 +43,201 @@ const faqs = [
 ]
 
 export default function FaqSection() {
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
+  const [openItem, setOpenItem] = useState<number | null>(null)
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: "easeOut",
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  }
+
+  const headerVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   }
 
   return (
-    <motion.section
-      className="relative overflow-hidden bg-black py-20 lg:py-32"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={sectionVariants}
-    >
-      {/* Grid background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="h-full w-full grid grid-cols-12 opacity-5">
-          {Array(12)
-            .fill(0)
-            .map((_, i) => (
-              <div key={i} className="border-r border-white/10 h-full"></div>
-            ))}
-        </div>
-        <div className="absolute top-0 left-0 h-full w-full grid grid-rows-12 opacity-5">
-          {Array(12)
-            .fill(0)
-            .map((_, i) => (
-              <div key={i} className="border-b border-white/10 w-full"></div>
-            ))}
-        </div>
-      </div>
-
-      {/* Ambient lighting effects (subtle blurred circles) */}
+    <section className="relative min-h-screen bg-black py-24 lg:py-32 overflow-hidden">
+      {/* Minimalist grid background */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/2 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/1 rounded-full blur-3xl"></div>
+        <div className="h-full w-full opacity-[0.02]">
+          <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
+        </div>
       </div>
 
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      {/* Subtle ambient lighting */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-white/[0.005] rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 left-1/4 w-[600px] h-[300px] bg-white/[0.003] rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-4xl px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <motion.div
-          className="text-center mb-16 lg:mb-20"
-          variants={itemVariants} // Use itemVariants for header elements
+          className="text-center mb-20 lg:mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={headerVariants}
         >
+          {/* Minimalist line accent */}
           <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: "80px" }}
+            className="h-[1px] bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-12"
+            initial={{ width: 0, opacity: 0 }}
+            whileInView={{ width: "120px", opacity: 0.3 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-[2px] bg-white mx-auto mb-8"
+            transition={{ duration: 1.2, delay: 0.3 }}
           />
-          <h2 className="mb-6 text-4xl lg:text-5xl font-bold tracking-tight text-white">
-            Frequently Asked
-            <span className="block text-5xl lg:text-6xl font-extrabold mt-2 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-              Questions
+
+          <h2 className="text-5xl lg:text-7xl font-light tracking-tight mb-8">
+            <span className="text-white font-extralight">Frequently</span>
+            <br />
+            <span className="font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+              Asked Questions
             </span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg lg:text-xl text-gray-300 leading-relaxed">
-            Find answers to common questions about our custom software development services.
-          </p>
+
+          <motion.p
+            className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-light"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            Everything you need to know about our custom software development services.
+          </motion.p>
         </motion.div>
 
-        {/* FAQ Accordion */}
-        <Accordion type="single" collapsible className="w-full space-y-4">
-          {faqs.map((faq, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <AccordionItem
-                value={`item-${index}`}
-                className="relative rounded-xl overflow-hidden border border-white/[0.05] hover:border-white/[0.1] transition-colors duration-300"
-              >
-                {/* Glass background for item */}
-                <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-xl rounded-xl"></div>
+        {/* FAQ Items */}
+        <motion.div
+          className="space-y-2"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={containerVariants}
+        >
+          {faqs.map((faq, index) => {
+            const isOpen = openItem === index
 
-                <AccordionTrigger className="relative z-10 flex justify-between items-center w-full text-left text-lg font-semibold text-white hover:text-gray-200 transition-colors duration-300 px-6 py-4">
-                  {faq.question}
-                  {/* Custom icon for trigger */}
-                  <span className="accordion-icon transition-transform duration-300">
-                    <Plus className="h-5 w-5 text-gray-400 group-data-[state=open]:hidden" />
-                    <Minus className="h-5 w-5 text-white group-data-[state=closed]:hidden" />
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="relative z-10 text-gray-300 px-6 pb-4 pt-0 leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            </motion.div>
-          ))}
-        </Accordion>
+            return (
+              <motion.div key={index} variants={itemVariants}>
+                <motion.div
+                  className="group relative"
+                  layout
+                  transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  {/* Subtle border */}
+                  <div className="absolute inset-0 rounded-lg border border-white/[0.03] group-hover:border-white/[0.08] transition-colors duration-500" />
+
+                  {/* Glass background */}
+                  <div className="absolute inset-0 bg-white/[0.008] group-hover:bg-white/[0.015] backdrop-blur-sm rounded-lg transition-all duration-500" />
+
+                  <button
+                    className="relative w-full text-left p-8 lg:p-10 focus:outline-none focus:ring-1 focus:ring-white/10 rounded-lg transition-all duration-300"
+                    onClick={() => setOpenItem(isOpen ? null : index)}
+                  >
+                    <div className="flex items-center justify-between gap-8">
+                      <h3 className="text-xl lg:text-2xl font-medium text-white group-hover:text-gray-100 transition-colors duration-300 leading-relaxed">
+                        {faq.question}
+                      </h3>
+
+                      <motion.div
+                        className="flex-shrink-0 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-white/20 transition-colors duration-300"
+                        animate={{ rotate: isOpen ? 45 : 0 }}
+                        transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      >
+                        <Plus className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
+                      </motion.div>
+                    </div>
+                  </button>
+
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{
+                          duration: 0.4,
+                          ease: [0.25, 0.46, 0.45, 0.94],
+                          opacity: { duration: 0.3 },
+                        }}
+                        className="overflow-hidden"
+                      >
+                        <div className="relative px-8 lg:px-10 pb-8 lg:pb-10">
+                          {/* Subtle separator line */}
+                          <div className="h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent mb-6" />
+
+                          <motion.p
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.1, duration: 0.4 }}
+                            className="text-gray-300 leading-relaxed text-lg font-light"
+                          >
+                            {faq.answer}
+                          </motion.p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              </motion.div>
+            )
+          })}
+        </motion.div>
+
+        {/* Minimalist CTA */}
+        <motion.div
+          className="text-center mt-24"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <div className="relative inline-block">
+            {/* Subtle glow effect */}
+            <div className="absolute inset-0 bg-white/5 rounded-lg blur-xl" />
+
+            <div className="relative border border-white/10 rounded-lg p-8 bg-white/[0.01] backdrop-blur-sm">
+              <h3 className="text-2xl font-light text-white mb-4">Still have questions?</h3>
+              <p className="text-gray-400 mb-6 font-light">{"Get in touch with our team for personalized answers."}</p>
+
+              <motion.button
+                className="relative px-8 py-3 border border-white/20 text-white font-light rounded-lg hover:bg-white/5 transition-all duration-300 group"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="relative z-10">Contact Us</span>
+                <div className="absolute inset-0 bg-white/0 group-hover:bg-white/[0.02] rounded-lg transition-colors duration-300" />
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </motion.section>
+    </section>
   )
 }
