@@ -60,7 +60,6 @@ const services = [
   },
 ]
 
-// Generate grid background lines
 const generateGridLines = (count: number) => {
   return Array.from({ length: count }).map((_, i) => i)
 }
@@ -70,7 +69,6 @@ const ServiceCard = ({ service, index }: { service: (typeof services)[0]; index:
   const shouldReduceMotion = useReducedMotion()
   const [isHovered, setIsHovered] = useState(false)
 
-  // Optimized animations
   const variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -117,7 +115,6 @@ const ServiceCard = ({ service, index }: { service: (typeof services)[0]; index:
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
           />
-
           <div className="relative z-10 p-6 flex flex-col h-full">
             {/* Icon */}
             <div
@@ -128,13 +125,10 @@ const ServiceCard = ({ service, index }: { service: (typeof services)[0]; index:
             >
               <Icon className="w-7 h-7 text-white" />
             </div>
-
             <h3 className="mb-2 text-2xl font-semibold tracking-tight text-white transition-colors group-hover:text-white">
               {service.title}
             </h3>
-
             <p className="text-sm text-gray-400 mb-8">{service.description}</p>
-
             {/* Arrow - now part of the layout flow */}
             <div className="mt-auto flex justify-between items-center">
               <div className="h-[1px] bg-white/10 flex-grow mr-4 transition-all duration-300 group-hover:bg-white/30"></div>
@@ -156,7 +150,6 @@ const ServiceCard = ({ service, index }: { service: (typeof services)[0]; index:
   )
 }
 
-// Memoize the service card component
 const MemoizedServiceCard = React.memo(ServiceCard)
 
 export default function ServicesSection() {
@@ -164,25 +157,22 @@ export default function ServicesSection() {
   const shouldReduceMotion = useReducedMotion()
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Memoize the grid layout class
   const gridLayoutClass = useMemo(
     () => cn("grid gap-6", isMobile ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-2 md:grid-cols-3 lg:grid-cols-4"),
     [isMobile],
   )
 
-  // Grid lines
   const horizontalLines = generateGridLines(12)
   const verticalLines = generateGridLines(12)
 
   return (
     <motion.section
       ref={containerRef}
-      className="relative py-20 md:py-32 overflow-hidden bg-black text-white"
+      className="relative py-0 overflow-hidden bg-black text-white" // Removed vertical padding
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Grid background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="h-full w-full grid grid-cols-12 opacity-15">
           {verticalLines.map((i) => (
@@ -195,10 +185,11 @@ export default function ServicesSection() {
           ))}
         </div>
       </div>
-
-      <div className="container relative z-10 px-4 mx-auto">
+      <div className="container relative z-10 px-6 sm:px-8 lg:px-12 mx-auto max-w-7xl">
+        {" "}
+        {/* Ensured max-w-7xl */}
         <motion.div
-          className="flex flex-col items-start mb-12 md:mb-16 space-y-4"
+          className="flex flex-col items-start mb-8 md:mb-10 space-y-4" // Reduced bottom margin
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -215,9 +206,8 @@ export default function ServicesSection() {
             initial={{ width: 0 }}
             animate={{ width: "40%" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-[2px] bg-white mb-6 md:mb-8 max-w-[100px]"
+            className="h-[2px] bg-white mb-4 md:mb-6 max-w-[100px]"
           />
-
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -225,10 +215,9 @@ export default function ServicesSection() {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-5xl font-bold tracking-tight lg:text-6xl"
           >
-            <span className="block">Our</span>
-            <span className="block text-5xl sm:text-6xl md:text-7xl font-extrabold mt-2">Services</span>
+            <span className="block text-5xl sm:text-5xl md:text-5xl font-extrabold mt-2">Our</span>
+            <span className="block text-5xl sm:text-5xl md:text-5xl font-extrabold mt-2">Services</span>
           </motion.h2>
-
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -236,10 +225,9 @@ export default function ServicesSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="max-w-2xl text-lg md:text-xl text-gray-300"
           >
-            Innovative solutions tailored to transform your digital presence and business operations.
+            Transform Your Business
           </motion.p>
         </motion.div>
-
         <div className="relative">
           <div className={gridLayoutClass}>
             {services.map((service, index) => (
@@ -247,9 +235,8 @@ export default function ServicesSection() {
             ))}
           </div>
         </div>
-
         <motion.div
-          className="flex justify-center mt-12 md:mt-16"
+          className="flex justify-center mt-8 md:mt-10" // Reduced top margin
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -16,12 +16,12 @@ const expertiseAreas = [
     icon: Code2,
   },
   {
-    title: "E-commerce Storefronts",
+    title: "eCommerce Storefronts",
     description: "Designing and developing engaging, secure, and high-converting online stores that drive sales.",
     icon: Store,
   },
   {
-    title: "MVP Development",
+    title: "MVPs Development",
     description:
       "Rapidly building Minimum Viable Products to validate ideas and accelerate market entry with core features.",
     icon: Lightbulb,
@@ -57,7 +57,7 @@ export default function OurExpertise() {
 
   return (
     <motion.section
-      className="relative bg-black py-20 lg:py-28 overflow-hidden"
+      className="relative bg-black py-10 lg:py-14 overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -119,7 +119,7 @@ export default function OurExpertise() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="text-center mb-16 lg:mb-20">
+        <div className="mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -164,14 +164,14 @@ export default function OurExpertise() {
                            transition-all duration-500 ease-out"
               >
                 <div className="relative z-10 h-full rounded-2xl bg-black/40 backdrop-blur-xl p-8 flex flex-col justify-between">
-                  <div className="mb-6">
+                  <div>
                     <div
-                      className="w-16 h-16 rounded-md bg-white/[0.1] border border-white/20 flex items-center justify-center mb-6
+                      className="w-16 h-16 round-md bg-white/[0.1] border border-white/20 flex items-center justify-center mb-6
                                     group-hover:bg-white/[0.18] group-hover:border-white/30 transition-all duration-300"
                     >
                       <IconComponent className="w-8 h-8 text-white group-hover:text-gray-100 transition-colors duration-300" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gray-100 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gray-100 transition-colors duration-300">
                       {expertise.title}
                     </h3>
                     <p className="text-base text-gray-300 leading-relaxed font-light">{expertise.description}</p>
