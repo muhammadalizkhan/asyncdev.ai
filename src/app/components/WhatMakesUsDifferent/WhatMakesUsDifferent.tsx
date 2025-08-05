@@ -80,7 +80,6 @@ export default function WhatMakesUsDifferent() {
 
   return (
     <section className="relative py-0 overflow-hidden bg-black text-white">
-      {/* Background elements - similar to other sections */}
       <div className="absolute inset-0">
         <div className="h-full w-full opacity-[0.02]">
           <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
@@ -151,8 +150,8 @@ export default function WhatMakesUsDifferent() {
             className="h-[2px] bg-white mb-6 md:mb-8 max-w-[100px]"
           />
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            <span className="block">What Makes</span>
-            <span className="block text-5xl sm:text-6xl md:text-7xl font-extrabold mt-2">Us Different</span>
+            <span className="block text-5xl sm:text-6xl md:text-5xl font-extrabold mt-2">What Makes</span>
+            <span className="block text-5xl sm:text-6xl md:text-5xl font-extrabold mt-2">Us Different</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
             Beyond standard development, we bring unique perspectives and capabilities that transform how your software

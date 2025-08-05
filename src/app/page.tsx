@@ -18,10 +18,6 @@ export default function Page() {
       <ChooseUs />
       <WhatMakesUsDifferent />
       <WhoWeAre />
-     <EngagementModels />
-      <ScheduleCall />
-      <PricingComponent />
-      <ExploreOurTech />
     </>
   );
 }

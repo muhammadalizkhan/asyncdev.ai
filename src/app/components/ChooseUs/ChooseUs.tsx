@@ -151,8 +151,8 @@ export default function ChooseUs() {
             className="h-[2px] bg-white mb-6 md:mb-8 max-w-[100px]"
           />
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            <span className="block text-5xl sm:text-5xl md:text-5xl font-extrabold mt-2">Why</span>
-            <span className="block text-5xl sm:text-5xl md:text-5xl font-extrabold mt-2">Choose Us</span>
+            <span className="block">Why</span>
+            <span className="">Choose Us</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
             We combine technical excellence with deep industry knowledge to deliver custom software that drives your

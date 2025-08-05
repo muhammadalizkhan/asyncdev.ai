@@ -98,7 +98,8 @@ export default function WhoWeAre() {
   const [activeTab, setActiveTab] = useState("story")
 
   return (
-    <section className="relative py-0 overflow-hidden bg-black text-white">
+    <section className="relative mt-5 overflow-hidden bg-black text-white">
+
       <div className="absolute inset-0">
         <div className="h-full w-full opacity-[0.02]">
           <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
@@ -156,13 +157,48 @@ export default function WhoWeAre() {
       <div className="container relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center mb-16 md:mb-24">
           <div>
-            <Badge className="mb-3 bg-white/10 text-gray-300 border border-white/20" variant="outline">
-              Who We Are
-            </Badge>
-            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-              <span className="block">Crafting Digital</span>
-              <span className="block text-5xl sm:text-6xl md:text-7xl font-extrabold mt-2">Excellence Since 2015</span>
-            </h2>
+            <motion.div
+              className="flex flex-col items-start mb-8 md:mb-10 space-y-4" // Reduced bottom margin
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                },
+              }}
+            >
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "40%" }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="h-[2px] bg-white mb-4 md:mb-6 max-w-[100px]"
+              />
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="text-4xl md:text-5xl font-bold tracking-tight lg:text-6xl"
+              >
+                <span className="block text-5xl sm:text-5xl md:text-5xl font-extrabold mt-2">Who</span>
+                <span className="block text-5xl sm:text-5xl md:text-5xl font-extrabold mt-2">We Are</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="max-w-2xl text-lg md:text-xl text-gray-300"
+              >
+                Crafting Digital
+                Excellence
+              </motion.p>
+            </motion.div>
+
             <p className="text-lg md:text-xl text-gray-300 mb-8">
               We're a team of passionate technologists, designers, and problem solvers dedicated to transforming ideas
               into powerful software solutions. With expertise across multiple domains and technologies, we partner with
