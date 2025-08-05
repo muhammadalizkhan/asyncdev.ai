@@ -4,11 +4,13 @@ import ServicesOffers from './servicesSection'
 import FaqSection from './fqaSection'
 import DevelopmentSection from './developmentProcessApproach'
 import ContactUs from '@/app/components/ContactUs/ContactUs'
+import Technology from './technology'
 export default function page() {
   return (
     <>
       <HeroSection />
-            <DevelopmentSection />
+      <DevelopmentSection />
+      <Technology />
       <ServicesOffers />
       <FaqSection />
       <ContactUs />
