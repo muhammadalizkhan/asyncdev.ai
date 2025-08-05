@@ -6,16 +6,6 @@ import { Plus } from "lucide-react"
 
 const faqs = [
   {
-    question: "What is custom software development?",
-    answer:
-      "Custom software development involves designing, creating, deploying, and maintaining software applications specifically for a set of users, functions, or organizations. Unlike off-the-shelf software, custom solutions are tailored to meet unique business requirements and processes.",
-  },
-  {
-    question: "Why should I choose custom software over off-the-shelf solutions?",
-    answer:
-      "Custom software offers several advantages: it perfectly aligns with your business processes, provides a competitive edge, scales with your growth, offers enhanced security, and eliminates unnecessary features found in generic solutions. It's an investment tailored for long-term efficiency and innovation.",
-  },
-  {
     question: "What is your custom software development process?",
     answer:
       "Our process typically involves several key phases: Discovery & Planning, UI/UX Design, Development & Iteration (Agile methodology), Quality Assurance & Testing, Deployment, and Post-Launch Support & Maintenance. We ensure transparency and collaboration at every step.",
@@ -81,22 +71,18 @@ export default function FaqSection() {
   }
 
   return (
-    <section className="relative min-h-screen bg-black py-24 lg:py-32 overflow-hidden">
-      {/* Minimalist grid background */}
+    <section className="relative min-h-screen bg-black overflow-hidden">
       <div className="absolute inset-0">
         <div className="h-full w-full opacity-[0.02]">
           <div className="h-full w-full bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
         </div>
       </div>
-
-      {/* Subtle ambient lighting */}
       <div className="absolute inset-0">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-white/[0.005] rounded-full blur-3xl" />
         <div className="absolute bottom-1/3 left-1/4 w-[600px] h-[300px] bg-white/[0.003] rounded-full blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-4xl px-6 sm:px-8 lg:px-12">
-        {/* Header */}
         <motion.div
           className="text-center mb-20 lg:mb-24"
           initial="hidden"
@@ -104,7 +90,6 @@ export default function FaqSection() {
           viewport={{ once: true, margin: "-100px" }}
           variants={headerVariants}
         >
-          {/* Minimalist line accent */}
           <motion.div
             className="h-[1px] bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-12"
             initial={{ width: 0, opacity: 0 }}
@@ -132,7 +117,6 @@ export default function FaqSection() {
           </motion.p>
         </motion.div>
 
-        {/* FAQ Items */}
         <motion.div
           className="space-y-2"
           initial="hidden"
@@ -150,10 +134,8 @@ export default function FaqSection() {
                   layout
                   transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
-                  {/* Subtle border */}
                   <div className="absolute inset-0 rounded-lg border border-white/[0.03] group-hover:border-white/[0.08] transition-colors duration-500" />
 
-                  {/* Glass background */}
                   <div className="absolute inset-0 bg-white/[0.008] group-hover:bg-white/[0.015] backdrop-blur-sm rounded-lg transition-all duration-500" />
 
                   <button
@@ -189,7 +171,6 @@ export default function FaqSection() {
                         className="overflow-hidden"
                       >
                         <div className="relative px-8 lg:px-10 pb-8 lg:pb-10">
-                          {/* Subtle separator line */}
                           <div className="h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent mb-6" />
 
                           <motion.p
@@ -210,7 +191,6 @@ export default function FaqSection() {
           })}
         </motion.div>
 
-        {/* Minimalist CTA */}
         <motion.div
           className="text-center mt-24"
           initial={{ opacity: 0, y: 30 }}
@@ -219,13 +199,10 @@ export default function FaqSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <div className="relative inline-block">
-            {/* Subtle glow effect */}
             <div className="absolute inset-0 bg-white/5 rounded-lg blur-xl" />
-
             <div className="relative border border-white/10 rounded-lg p-8 bg-white/[0.01] backdrop-blur-sm">
               <h3 className="text-2xl font-light text-white mb-4">Still have questions?</h3>
               <p className="text-gray-400 mb-6 font-light">{"Get in touch with our team for personalized answers."}</p>
-
               <motion.button
                 className="relative px-8 py-3 border border-white/20 text-white font-light rounded-lg hover:bg-white/5 transition-all duration-300 group"
                 whileHover={{ scale: 1.02 }}
