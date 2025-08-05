@@ -12,7 +12,7 @@ import { ArrowRight } from "lucide-react"
 const services = [
   {
     icon: Database,
-    title: "Custom Software",
+    title: "Software Development",
     description: "Tailored solutions to enhance business productivity and workflow.",
     path: "/Services/custom-software-development",
   },

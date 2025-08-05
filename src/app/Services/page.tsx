@@ -1,12 +1,15 @@
 import React from "react";
-import "./Services.css";
 import ServiceComponent from "../components/ServiceComponent/ServiceComponent";
-import TrustedPartner from "../components/TrustedPartner/TrustedPartner";
+import ServiceHero from "./serviceHero";
+import ContactUs from '../components/ContactUs/ContactUs'
+
+import { Contact } from "lucide-react";
 export default function Services() {
   return (
-    <div className="services-container">
+    <div>
+      <ServiceHero />
       <ServiceComponent />
-      <TrustedPartner />
+      <ContactUs />
     </div>
   );
 }

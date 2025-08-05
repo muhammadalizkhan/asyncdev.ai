@@ -1,4 +1,5 @@
 "use client"
+
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
@@ -24,27 +25,29 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 min-h-screen flex flex-col">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 min-h-screen flex flex-col">
         {/* Main content area */}
-        <div className="flex-grow flex items-center py-16 md:py-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center w-full">
+        <div className="flex-grow flex items-center py-12 sm:py-16 lg:py-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center w-full">
             {/* Text content - spans 6 columns */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="lg:col-span-6 space-y-6 md:space-y-8"
+              className="lg:col-span-6 space-y-6 sm:space-y-8"
             >
               <div>
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: "40%" }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="h-[2px] bg-white mb-6 md:mb-8"
+                  className="h-[2px] bg-white mb-6 sm:mb-8"
                 />
-                <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-none tracking-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-none tracking-tight">
                   Crafting
-                  <span className="block mt-2 text-5xl sm:text-6xl md:text-8xl font-extrabold">Digital Excellence</span>
+                  <span className="block mt-1 sm:mt-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold">
+                    Digital Excellence
+                  </span>
                 </h1>
               </div>
 
@@ -52,7 +55,7 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg md:text-xl text-gray-300 max-w-xl leading-relaxed"
+                className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-xl leading-relaxed"
               >
                 Asyn Dev AI delivers cutting-edge solutions in AI development, software engineering, product design, and
                 digital experiences that transform businesses.
@@ -62,15 +65,15 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 pt-2 md:pt-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4"
               >
-                <Button className="bg-white text-black hover:bg-gray-200 rounded-none px-6 sm:px-8 py-6 sm:py-7 text-base sm:text-lg font-medium group">
+                <Button className="bg-white text-black hover:bg-gray-100 hover:text-black rounded-none px-6 sm:px-8 py-5 sm:py-6 lg:py-7 text-sm sm:text-base lg:text-lg font-medium group transition-all duration-200">
                   Explore our work
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-white hover:bg-white/10 rounded-none px-6 sm:px-8 py-6 sm:py-7 text-base sm:text-lg font-medium"
+                  className="border-white text-white hover:bg-white hover:text-black rounded-none px-6 sm:px-8 py-5 sm:py-6 lg:py-7 text-sm sm:text-base lg:text-lg font-medium transition-all duration-200 bg-transparent"
                 >
                   Our services
                 </Button>
@@ -82,11 +85,11 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
-              className="lg:col-span-6 relative mt-8 lg:mt-0"
+              className="lg:col-span-6 relative mt-8 lg:mt-0 flex justify-center lg:justify-end"
             >
-              <div className="relative aspect-square max-w-md mx-auto lg:max-w-xl">
+              <div className="relative aspect-square w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
                 {/* Redesigned visual element */}
-                <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-4">
+                <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-3 sm:gap-4">
                   {/* Top left quadrant */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -141,25 +144,25 @@ export default function Hero() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1 }}
-                  className="absolute -top-8 -left-8 w-16 h-16 border border-white/40"
+                  className="absolute -top-6 sm:-top-8 -left-6 sm:-left-8 w-12 h-12 sm:w-16 sm:h-16 border border-white/40"
                 ></motion.div>
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1.1 }}
-                  className="absolute -bottom-8 -right-8 w-16 h-16 border border-white/40"
+                  className="absolute -bottom-6 sm:-bottom-8 -right-6 sm:-right-8 w-12 h-12 sm:w-16 sm:h-16 border border-white/40"
                 ></motion.div>
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1.2 }}
-                  className="absolute -bottom-4 -left-4 w-8 h-8 bg-white/40"
+                  className="absolute -bottom-3 sm:-bottom-4 -left-3 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 bg-white/40"
                 ></motion.div>
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 1.3 }}
-                  className="absolute -top-4 -right-4 w-8 h-8 bg-white/40"
+                  className="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 bg-white/40"
                 ></motion.div>
               </div>
             </motion.div>
@@ -167,18 +170,23 @@ export default function Hero() {
         </div>
 
         {/* Services bar - fixed at bottom */}
-        <div className="w-full border-t border-white/10 py-6 md:py-8 mt-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-4 gap-x-6 text-sm text-gray-400 uppercase tracking-wider">
+        <div className="w-full border-t border-white/10 py-6 sm:py-8 mt-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-3 sm:gap-y-4 gap-x-4 sm:gap-x-6 text-xs sm:text-sm text-gray-400 uppercase tracking-wider">
             {[
               "AI Development",
               "Software Development",
               "Product Development",
               "UI/UX Design",
+                            "UI/UX Design",
+              "Software Testing",
+              "Mobile App Development",
+              "Cloud Solutions",
+              "UI/UX Design",
               "E-commerce Solutions",
             ].map((service, index) => (
               <div key={index} className="flex items-center">
                 <div className="w-2 h-2 bg-white mr-3 flex-shrink-0"></div>
-                <span>{service}</span>
+                <span className="leading-tight">{service}</span>
               </div>
             ))}
           </div>
