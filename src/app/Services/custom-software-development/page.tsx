@@ -1,12 +1,14 @@
 import React from 'react'
-import CSDHeroSection from '../../components/CustomSoftwareDevelopmentUIComps/CSDHeroSection'
-import ServicesOffers from '../../components/CustomSoftwareDevelopmentUIComps/ServicesOffers'
+import HeroSection from './herosection'
+import ServicesOffers from './servicesSection'
+import FaqSection from './fqaSection'
 
 export default function page() {
   return (
     <>
-      <CSDHeroSection />
+      <HeroSection />
       <ServicesOffers />
+      <FaqSection />
     </>
   )
 }
