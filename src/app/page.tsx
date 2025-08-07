@@ -12,13 +12,19 @@ import OurExpertise from "./Our-Expertise/ourExperties";
 export default function Page() {
   return (
     <>
+      <div className="relative">
+        <div className="bg-yellow-500 text-black text-center py-2 z-50">
+          <p className="text-sm font-medium">🚧 Site is under development</p>
+        </div>
+      </div>
+
       <Hero />
       <OurExpertise />
       <ServiceComponent />
       <ChooseUs />
       <WhatMakesUsDifferent />
       <WhoWeAre />
-    <EngagementModels />
+      <EngagementModels />
       <ScheduleCall />
       <PricingComponent />
       <ExploreOurTech />

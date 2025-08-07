@@ -76,7 +76,6 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null)
   const servicesRef = useRef<HTMLDivElement>(null)
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
@@ -85,7 +84,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"
@@ -97,7 +95,6 @@ export default function Navbar() {
     }
   }, [isOpen])
 
-  // Handle scroll direction for hiding/showing navbar
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const [visible, setVisible] = useState(true)
 
@@ -116,7 +113,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [prevScrollPos, isOpen, showServicesDropdown])
 
-  // Handle click outside dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -157,14 +153,10 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            {/* Title */}
             <Link href="/" className="text-white text-2xl font-bold tracking-tight">
-              Asyn Dev AI
+              asyncdevco ai
             </Link>
-
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-10">
-              {/* Services with Dropdown */}
               <div
                 className="relative"
                 ref={servicesRef}
@@ -182,8 +174,7 @@ export default function Navbar() {
                 </button>
               </div>
 
-              {/* Other Navigation Items */}
-              {["Technology", "About", "Resources", "Contact"].map((item) => (
+              {["Technology", "About", "Resources", "Insights", "Company", "Contact"].map((item) => (
                 <Link
                   key={item}
                   href={`/${item.toLowerCase()}`}
@@ -194,10 +185,9 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA Button - Desktop */}
             <div className="hidden md:block">
               <Link
-                href="/contact"
+                href="/Contact"
                 className="inline-flex items-center gap-2 bg-white text-black px-6 py-2.5 font-medium transition-colors hover:bg-gray-200 group"
               >
                 Schedule Strategy Call
@@ -205,7 +195,6 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className="md:hidden text-white"
               onClick={() => setIsOpen(!isOpen)}
@@ -217,7 +206,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Desktop Services Mega Menu */}
         {showServicesDropdown && (
           <div
             ref={dropdownRef}
@@ -261,7 +249,6 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Mobile Menu Overlay */}
       {isOpen && (
         <div className="fixed inset-0 bg-black z-50 md:hidden overflow-y-auto">
           <div className="container mx-auto px-4 py-5">
@@ -276,7 +263,6 @@ export default function Navbar() {
 
             <div className="border-t border-white/10 pt-10">
               <div className="flex flex-col space-y-6">
-                {/* Mobile Services with Expandable Menu */}
                 <div>
                   <button
                     onClick={() => setShowMobileServices(!showMobileServices)}
@@ -315,7 +301,6 @@ export default function Navbar() {
                   )}
                 </div>
 
-                {/* Other Mobile Navigation Items */}
                 {["Technology", "About", "Resources", "Contact"].map((item) => (
                   <Link
                     key={item}
@@ -330,7 +315,7 @@ export default function Navbar() {
 
               <div className="mt-10 pt-10 border-t border-white/10">
                 <Link
-                  href="/contact"
+                  href="/Contact"
                   className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 font-medium transition-colors hover:bg-gray-200"
                   onClick={handleLinkClick}
                 >
